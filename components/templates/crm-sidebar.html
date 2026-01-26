@@ -1,0 +1,48 @@
+<template tag-name="crm-sidebar">
+    <div class="sidebar-inner {{isCollapsed ? 'collapsed' : ''}}">
+
+        <div class="sidebar-header">
+            <div class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+            </div>
+            <span class="logo-text" onclick="{{action('toggleSidebar')}}">Mini CRM</span>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="#/dashboard" class="nav-item">
+                <span class="icon"></span>
+                <span class="text">Dashboard</span>
+            </a>
+            <br>
+
+            <template is="if" value="{{canViewCompanies}}">
+                <a href="#/companies" class="nav-item">
+                    <span class="icon"></span>
+                    <span class="text">Companies</span>
+                </a>
+            </template>
+            <br>
+
+<!--            <template is="if" value="{{canViewContacts}}">-->
+
+                <a href="#/contacts" class="nav-item">
+                    <span class="icon"></span>
+                    <span class="text">Contacts</span>
+                </a>
+<!--            </template>-->
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="user-info">
+                <div class="avatar">{{userInitials}}</div>
+                <div class="details">
+                    <span class="name">{{userName}}</span>
+                    <span class="role">{{userRole}}</span>
+                </div>
+            </div>
+            <button onclick="{{action('logout')}}" class="logout-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+            </button>
+        </div>
+    </div>
+</template>

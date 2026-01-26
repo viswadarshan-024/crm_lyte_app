@@ -1,0 +1,41 @@
+/* Card & Containers */
+.card {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+.card-body { padding: 24px; }
+.form-container { max-width: 700px; margin: 0 auto; }
+
+/* Typography */
+.form-title { font-size: 1.5rem; margin-bottom: 1.5rem; color: #1e293b; }
+.form-section { margin-bottom: 24px; }
+
+/* Inputs */
+.form-group { margin-bottom: 16px; }
+.form-group label { display: block; margin-bottom: 6px; font-weight: 500; color: #475569; }
+.required { color: #ef4444; }
+
+.form-input, .form-select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 0.875rem;
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+/* Buttons */
+.form-actions { display: flex; gap: 12px; margin-top: 24px; }
+.btn {
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    display: inline-block;
+}
+.btn-primary { background-color: #3b82f6; color: white; }
+.btn-secondary { background-color: #f1f5f9; color: #475569; }

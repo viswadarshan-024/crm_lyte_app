@@ -1,0 +1,8 @@
+Lyte.Component.register("crm-dashboard", {
+_template:"<template tag-name=\"crm-dashboard\"> <div class=\"dashboard-container\" style=\"padding: 2rem;\"> <h1>CRM Dashboard</h1> <p>Welcome to your CRM Dashboard.</p> <div style=\"margin-top: 2rem;\"> <p>Select a module from the sidebar to get started.</p> </div> </div> </template>",
+_dynamicNodes : [],
+
+	data : function(){
+		return {}
+	}
+});

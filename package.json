@@ -1,0 +1,19 @@
+{
+    "name": "crm_app",
+    "version": "1.0.0",
+    "description": "Description for crm_app goes here",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC",
+   
+    "dependencies" : {
+      "@zoho/lyte" : "3.1.0"
+    },
+    "devDependencies" : {
+     
+    }
+  
+}
+  
