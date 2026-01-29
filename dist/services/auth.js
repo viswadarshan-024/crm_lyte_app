@@ -1,38 +1,36 @@
-Lyte.Service.register("auth", class AuthService {
-    static services = ["api"];
+Lyte.Service.register("auth", {
+    // 1. Dependency Injection (Standard Lyte Syntax)
+    services: ["api"],
 
-    constructor() {
-        this.user = null;
-        this.permissions = [];
+    // 2. Data Properties
+    user: null,
+    permissions: [],
 
-        // Constants
-        this.PERMISSIONS = {
-            COMPANY_CREATE: 'COMPANY_CREATE',
-            COMPANY_UPDATE: 'COMPANY_UPDATE',
-            COMPANY_DELETE: 'COMPANY_DELETE',
-            CONTACT_CREATE: 'CONTACT_CREATE',
-            CONTACT_UPDATE: 'CONTACT_UPDATE',
-            CONTACT_DELETE: 'CONTACT_DELETE',
-            CONTACT_VIEW_SELF: 'CONTACT_VIEW_SELF',
-            DEAL_CREATE: 'DEAL_CREATE',
-            DEAL_UPDATE: 'DEAL_UPDATE',
-            DEAL_DELETE: 'DEAL_DELETE',
-            DEAL_VIEW_ALL: 'DEAL_VIEW_ALL',
-            DEAL_VIEW_TEAM: 'DEAL_VIEW_TEAM',
-            DEAL_VIEW_SELF: 'DEAL_VIEW_SELF',
-            ACTIVITY_CREATE: 'ACTIVITY_CREATE',
-            ACTIVITY_UPDATE: 'ACTIVITY_UPDATE',
-            ACTIVITY_DELETE: 'ACTIVITY_DELETE',
-            ACTIVITY_VIEW_ALL: 'ACTIVITY_VIEW_ALL',
-            ACTIVITY_VIEW_TEAM: 'ACTIVITY_VIEW_TEAM',
-            ACTIVITY_VIEW_SELF: 'ACTIVITY_VIEW_SELF',
-            USER_MANAGE: 'USER_MANAGE'
-        };
+    PERMISSIONS: {
+        COMPANY_CREATE: 'COMPANY_CREATE',
+        COMPANY_UPDATE: 'COMPANY_UPDATE',
+        COMPANY_DELETE: 'COMPANY_DELETE',
+        CONTACT_CREATE: 'CONTACT_CREATE',
+        CONTACT_UPDATE: 'CONTACT_UPDATE',
+        CONTACT_DELETE: 'CONTACT_DELETE',
+        CONTACT_VIEW_SELF: 'CONTACT_VIEW_SELF',
+        DEAL_CREATE: 'DEAL_CREATE',
+        DEAL_UPDATE: 'DEAL_UPDATE',
+        DEAL_DELETE: 'DEAL_DELETE',
+        DEAL_VIEW_ALL: 'DEAL_VIEW_ALL',
+        DEAL_VIEW_TEAM: 'DEAL_VIEW_TEAM',
+        DEAL_VIEW_SELF: 'DEAL_VIEW_SELF',
+        ACTIVITY_CREATE: 'ACTIVITY_CREATE',
+        ACTIVITY_UPDATE: 'ACTIVITY_UPDATE',
+        ACTIVITY_DELETE: 'ACTIVITY_DELETE',
+        ACTIVITY_VIEW_ALL: 'ACTIVITY_VIEW_ALL',
+        ACTIVITY_VIEW_TEAM: 'ACTIVITY_VIEW_TEAM',
+        ACTIVITY_VIEW_SELF: 'ACTIVITY_VIEW_SELF',
+        USER_MANAGE: 'USER_MANAGE'
+    },
 
-        this.init();
-    }
-
-    init() {
+    // 3. Initialization
+    init: function() {
         let stored = localStorage.getItem('user');
         if (stored) {
             try {
@@ -42,25 +40,23 @@ Lyte.Service.register("auth", class AuthService {
                 this.logout();
             }
         }
-    }
+    },
 
-    setUser(userData) {
+    // 4. Methods
+    setUser: function(userData) {
         this.user = userData;
         this.permissions = userData.permissions || [];
         localStorage.setItem('user', JSON.stringify(userData));
-    }
+    },
 
-    /**
-     * LOGS IN THE USER
-     */
-    login(username, password) {
-        // Access the injected service
+    login: function(username, password) {
+        // Access the injected 'api' service using 'this.api'
         let apiService = this.api;
 
         if (!apiService) {
-            return Promise.reject({ message: "System Error: API Service Unreachable" });
+            return Promise.reject({ message: "System Error: API Service Unreachable. Check services/api.js" });
         }
-        
+
         return apiService.request('login.action', {
             method: 'POST',
             body: {
@@ -69,7 +65,6 @@ Lyte.Service.register("auth", class AuthService {
             }
         }).then((response) => {
             let userData = response.data;
-
             if(userData && userData.userContext) {
                 userData = userData.userContext;
             }
@@ -81,74 +76,75 @@ Lyte.Service.register("auth", class AuthService {
                 throw new Error("Invalid response from server");
             }
         });
-    }
+    },
 
-    getUser() {
+    getUser: function() {
         return this.user;
-    }
+    },
 
-    getRoleName() {
+    getRoleName: function() {
         return (this.user && this.user.roleName) ? this.user.roleName : '';
-    }
+    },
 
-    getProfileName() {
+    getProfileName: function() {
         return (this.user && this.user.profileName) ? this.user.profileName : '';
-    }
+    },
 
-    getPermissions() {
+    getPermissions: function() {
         return this.permissions;
-    }
+    },
 
-    isAuthenticated() {
+    isAuthenticated: function() {
         return !!this.user;
-    }
+    },
 
-    logout() {
+    logout: function() {
         this.user = null;
         this.permissions = [];
         localStorage.removeItem('user');
 
-        // Use Lyte Router if available, otherwise window.location
         if(Lyte.Router) {
             Lyte.Router.transitionTo('login');
         } else {
             window.location.href = "/";
         }
-    }
-    
-    hasPermission(permissionCode) {
-        if (!permissionCode) return false;
-        return this.permissions.includes(permissionCode);
-    }
+    },
 
-    hasAnyPermission(...codes) {
+    hasPermission: function(permissionCode) {
+        if (!permissionCode) return false;
+        return this.permissions.indexOf(permissionCode) !== -1;
+    },
+
+    hasAnyPermission: function() {
+        let codes = Array.prototype.slice.call(arguments);
         let codeList = Array.isArray(codes[0]) ? codes[0] : codes;
         let self = this;
         return codeList.some(function(code) {
-            return self.permissions.includes(code);
+            return self.permissions.indexOf(code) !== -1;
         });
-    }
+    },
 
-    hasAllPermissions(...codes) {
+    hasAllPermissions: function() {
+        let codes = Array.prototype.slice.call(arguments);
         let codeList = Array.isArray(codes[0]) ? codes[0] : codes;
         let self = this;
         return codeList.every(function(code) {
-            return self.permissions.includes(code);
+            return self.permissions.indexOf(code) !== -1;
         });
-    }
+    },
 
-    canAccess(module) {
+    canAccess: function(module) {
         if (!this.user) return false;
 
         switch (module) {
             case 'dashboard': return true;
-            case 'companies': return this.hasAnyPermission('COMPANY_CREATE', 'COMPANY_UPDATE', 'COMPANY_DELETE');
-            case 'contacts': return this.hasAnyPermission('CONTACT_CREATE', 'CONTACT_UPDATE', 'CONTACT_DELETE', 'CONTACT_VIEW_SELF');
-            case 'deals': return this.hasAnyPermission('DEAL_VIEW_ALL', 'DEAL_VIEW_TEAM', 'DEAL_VIEW_SELF', 'DEAL_CREATE');
-            case 'activities': return this.hasAnyPermission('ACTIVITY_VIEW_ALL', 'ACTIVITY_VIEW_TEAM', 'ACTIVITY_VIEW_SELF', 'ACTIVITY_CREATE');
+            case 'companies': return this.hasAnyPermission(this.PERMISSIONS.COMPANY_CREATE, this.PERMISSIONS.COMPANY_UPDATE, this.PERMISSIONS.COMPANY_DELETE);
+            case 'contacts': return this.hasAnyPermission(this.PERMISSIONS.CONTACT_CREATE, this.PERMISSIONS.CONTACT_UPDATE, this.PERMISSIONS.CONTACT_DELETE, this.PERMISSIONS.CONTACT_VIEW_SELF);
+            case 'deals': return this.hasAnyPermission(this.PERMISSIONS.DEAL_VIEW_ALL, this.PERMISSIONS.DEAL_VIEW_TEAM, this.PERMISSIONS.DEAL_VIEW_SELF, this.PERMISSIONS.DEAL_CREATE);
+            case 'activities': return this.hasAnyPermission(this.PERMISSIONS.ACTIVITY_VIEW_ALL, this.PERMISSIONS.ACTIVITY_VIEW_TEAM, this.PERMISSIONS.ACTIVITY_VIEW_SELF, this.PERMISSIONS.ACTIVITY_CREATE);
             case 'users':
             case 'roles':
-            case 'profiles': return this.hasPermission('USER_MANAGE');
+            case 'profiles': return this.hasPermission(this.PERMISSIONS.USER_MANAGE);
             case 'settings': return true;
             default: return false;
         }

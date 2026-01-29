@@ -8,19 +8,8 @@ Lyte.Router.registerRoute('index',{
 // beforeModel  : function (paramsObject ){ 
 //         /* Pre processing stage where you can decide whether to abort/redirect the current transition(e.g Permission check). */
 // },
-	model : function()	{
-		return {
-			features : [
-				{module : 'Router',url : 'http://lyte/2.0/doc/route/introduction'},
-				{module : 'Components',url : 'http://lyte/2.0/doc/components/introduction'},
-				{module : 'Data',url : 'http://lyte/2.0/doc/data/introduction'},
-				{module : 'CLI',url : 'http://lyte/2.0/doc/cli/introduction'}
-			]
-		}
-				
-	},
     beforeModel: function() {
-        this.replaceWith('dashboard');
+        this.replaceWith('crm-app.crm-dashboard');
     },
 // afterModel  : function (model, paramsObject ){
 //         /* Manipulating data before returning data to component. */

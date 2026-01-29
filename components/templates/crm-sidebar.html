@@ -10,26 +10,74 @@
 
         <nav class="sidebar-nav">
             <a href="#/dashboard" class="nav-item">
-                <span class="icon"></span>
+                <span class="icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                </span>
                 <span class="text">Dashboard</span>
             </a>
-            <br>
 
-            <template is="if" value="{{canViewCompanies}}">
+            <template lyte-if="{{canViewCompanies}}">
                 <a href="#/companies" class="nav-item">
-                    <span class="icon"></span>
+                    <span class="icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l8-4 8 4v14M8 21v-4h8v4"></path></svg>
+                    </span>
                     <span class="text">Companies</span>
                 </a>
             </template>
-            <br>
 
-<!--            <template is="if" value="{{canViewContacts}}">-->
-
+            <template lyte-if="{{canViewContacts}}">
                 <a href="#/contacts" class="nav-item">
-                    <span class="icon"></span>
+                    <span class="icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    </span>
                     <span class="text">Contacts</span>
                 </a>
-<!--            </template>-->
+            </template>
+
+            <template lyte-if="{{canViewDeals}}">
+                <a href="#/deals" class="nav-item">
+                    <span class="icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    </span>
+                    <span class="text">Deals</span>
+                </a>
+            </template>
+
+            <template lyte-if="{{canViewActivities}}">
+                <a href="#/activities" class="nav-item">
+                    <span class="icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    </span>
+                    <span class="text">Activities</span>
+                </a>
+            </template>
+
+            <template lyte-if="{{canViewUsers}}">
+                <a href="#/users" class="nav-item">
+                    <span class="icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    </span>
+                    <span class="text">Users</span>
+                </a>
+            </template>
+
+            <template lyte-if="{{canViewRoles}}">
+                <a href="#/roles" class="nav-item">
+                    <span class="icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    </span>
+                    <span class="text">Roles</span>
+                </a>
+            </template>
+
+            <template lyte-if="{{canViewProfiles}}">
+                <a href="#/profiles" class="nav-item">
+                    <span class="icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    </span>
+                    <span class="text">Profiles</span>
+                </a>
+            </template>
         </nav>
 
         <div class="sidebar-footer">

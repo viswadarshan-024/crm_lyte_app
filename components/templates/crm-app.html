@@ -1,10 +1,11 @@
 <template tag-name="crm-app">
-    <div class="app-container">
+    <div class="app-container" style="display: flex; height: 100vh; overflow: hidden;">
 
-        <crm-sidebar class="sidebar"></crm-sidebar>
+        <crm-sidebar></crm-sidebar>
 
-        <main class="main-content">
-            <lyte-outlet yield="true"></lyte-outlet>
-        </main>
+        <div class="main-content" style="flex-grow: 1; overflow-y: auto; background-color: #f4f7f6; position: relative;">
+            <div id="crm_inner_outlet"></div>
+        </div>
+
     </div>
 </template>
