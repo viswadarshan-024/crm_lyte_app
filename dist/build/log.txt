@@ -1,3 +1,3325 @@
 undefined
 undefined
 undefined
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.001 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0.018 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.209 s
+Callback function called 0 scontact-list
+Time to end the dynamic nodes0.209 s
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.004 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.193 s
+Callback function called 0 scontact-list
+Time to end the dynamic nodes0.193 s
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.003 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.205 s
+Callback function called 0 scontact-list
+Time to end the dynamic nodes0.205 s
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.002 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.192 s
+Callback function called 0 scontact-list
+Time to end the dynamic nodes0.192 s
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.001 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0.008 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.181 s
+Callback function called 0 scontact-list
+Time to end the dynamic nodes0.181 s
+Generating dist components...
+
+Time to end processing template0 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.001 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.155 s
+Callback function called 0 scrm-app
+Time to end the dynamic nodes0.155 s
+Generating dist components...
+
+Time to end processing template0 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.002 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.193 s
+Callback function called 0 scontact-list
+Time to end the dynamic nodes0.193 s
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.001 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.206 s
+Callback function called 0.001 scontact-list
+Time to end the dynamic nodes0.207 s
+Generating dist components...
+
+Time to end processing template0 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.001 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.188 s
+Callback function called 0 scontact-list
+Time to end the dynamic nodes0.188 s
+Generating dist components...
+
+Time to end processing template0 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.002 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.187 s
+Callback function called 0 scontact-list
+Time to end the dynamic nodes0.187 s
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.002 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.209 s
+Callback function called 0 scontact-list
+Time to end the dynamic nodes0.209 s
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.002 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.559 s
+Callback function called 0 scontact-list
+Time to end the dynamic nodes0.559 s
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.001 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+Consolidated file created in the dist/app.js
+
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.317 s
+Callback function called 0 scontact-list
+Time to end the dynamic nodes0.317 s
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.004 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.234 s
+Callback function called 0 scontact-list
+Time to end the dynamic nodes0.234 s
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.003 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.266 s
+Callback function called 0 scontact-list
+Time to end the dynamic nodes0.266 s
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.003 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.195 s
+Callback function called 0 scontact-list
+Time to end the dynamic nodes0.195 s
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.002 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.374 s
+Callback function called 0 scrm-sidebar
+Time to end the dynamic nodes0.374 s
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+[Removed] => dist/routes/crm-app/crm-dashboard.js
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+[Removed] => dist/routes/crm-dashboard.js
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.002 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.195 s
+Callback function called 0 scrm-app
+Time to end the dynamic nodes0.195 s
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.002 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0.008 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.185 s
+Callback function called 0.001 scrm-app
+Time to end the dynamic nodes0.186 s
+Generating dist components...
+
+Time to end processing template0 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.002 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0.003 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.199 s
+Callback function called 0 scrm-app
+Time to end the dynamic nodes0.199 s
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.002 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0.003 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.195 s
+Callback function called 0 scrm-app
+Time to end the dynamic nodes0.195 s
+Generating dist components...
+
+Time to end processing template0 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.002 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0.003 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.188 s
+Callback function called 0 scrm-app
+Time to end the dynamic nodes0.188 s
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.002 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.173 s
+Callback function called 0 scrm-app
+Time to end the dynamic nodes0.173 s
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.001 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0.003 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.164 s
+Callback function called 0 scrm-app
+Time to end the dynamic nodes0.164 s
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.002 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.216 s
+Callback function called 0 scrm-app
+Time to end the dynamic nodes0.216 s
+Generating dist components...
+
+Time to end processing template0.002 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.001 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.209 s
+Callback function called 0 scrm-app
+Time to end the dynamic nodes0.209 s
+Generating dist components...
+
+Time to end processing template0 s
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.002 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.218 s
+Callback function called 0 scontact-list
+Time to end the dynamic nodes0.218 s
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.001 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.193 s
+Callback function called 0.001 scontact-list
+Time to end the dynamic nodes0.193 s
+Generating dist components...
+
+Time to end processing template0 s
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.002 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.23 s
+Callback function called 0 scontact-create
+Time to end the dynamic nodes0.23 s
+Generating dist components...
+
+Time to end processing template0 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.002 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.202 s
+Callback function called 0 scontact-list
+Time to end the dynamic nodes0.202 s
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.002 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.219 s
+Callback function called 0 scontact-list
+Time to end the dynamic nodes0.219 s
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.004 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.209 s
+Callback function called 0 scontact-list
+Time to end the dynamic nodes0.209 s
+Generating dist components...
+
+Time to end processing template0 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.003 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0.007 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.195 s
+Callback function called 0 scontact-list
+Time to end the dynamic nodes0.195 s
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.003 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0.008 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.215 s
+Callback function called 0 scontact-list
+Time to end the dynamic nodes0.215 s
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.001 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0.007 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.205 s
+Callback function called 0 scontact-list
+Time to end the dynamic nodes0.205 s
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.002 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.199 s
+Callback function called 0 scontact-list
+Time to end the dynamic nodes0.199 s
+Generating dist components...
+
+Time to end processing template0.002 s
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.006 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.221 s
+Callback function called 0.001 scontact-list
+Time to end the dynamic nodes0.222 s
+Generating dist components...
+
+Time to end processing template0.004 s
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.001 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.204 s
+Callback function called 0 scontact-list
+Time to end the dynamic nodes0.204 s
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.003 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.22 s
+Callback function called 0 scontact-list
+Time to end the dynamic nodes0.221 s
+Generating dist components...
+
+Time to end processing template0 s
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.001 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.488 s
+Callback function called 0 slogin-comp
+Time to end the dynamic nodes0.488 s
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.001 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.196 s
+Callback function called 0 slogin-comp
+Time to end the dynamic nodes0.196 s
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.003 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.196 s
+Callback function called 0.001 slogin-comp
+Time to end the dynamic nodes0.197 s
+Generating dist components...
+
+Time to end processing template0 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.001 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.166 s
+Callback function called 0 slogin-comp
+Time to end the dynamic nodes0.166 s
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.001 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.219 s
+Callback function called 0 scrm-sidebar
+Time to end the dynamic nodes0.219 s
+Generating dist components...
+
+Time to end processing template0 s
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.002 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0.015 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.231 s
+Callback function called 0 scrm-sidebar
+Time to end the dynamic nodes0.231 s
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.001 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0.003 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.181 s
+Callback function called 0 scrm-sidebar
+Time to end the dynamic nodes0.181 s
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.001 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0.003 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.194 s
+Callback function called 0 scrm-sidebar
+Time to end the dynamic nodes0.194 s
+Generating dist components...
+
+Time to end processing template0 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.001 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.186 s
+Callback function called 0 scrm-sidebar
+Time to end the dynamic nodes0.186 s
+Generating dist components...
+
+Time to end processing template0 s
+Consolidated file created in the dist/app.js
+
+Build components/Users/viswa-nts0283/crm_app/components/javascript/contact-view.jscalled
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.001 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.171 s
+Callback function called 0 scontact-view
+Time to end the dynamic nodes0.171 s
+Generating dist components...
+
+Time to end processing template0 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.17 s
+Callback function called 0 scontact-view
+Time to end the dynamic nodes0.17 s
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.001 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.224 s
+Callback function called 0 scontact-view
+Time to end the dynamic nodes0.224 s
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.002 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.228 s
+Callback function called 0 scontact-view
+Time to end the dynamic nodes0.229 s
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.002 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.23 s
+Callback function called 0 scontact-view
+Time to end the dynamic nodes0.23 s
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.001 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.196 s
+Callback function called 0 scontact-view
+Time to end the dynamic nodes0.196 s
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.002 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0.009 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.233 s
+Callback function called 0 scontact-view
+Time to end the dynamic nodes0.233 s
+Generating dist components...
+
+Time to end processing template0.002 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.002 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0.002 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.19 s
+Callback function called 0 scontact-view
+Time to end the dynamic nodes0.19 s
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.006 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0.006 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.227 s
+Callback function called 0.001 scontact-view
+Time to end the dynamic nodes0.228 s
+Generating dist components...
+
+Time to end processing template0 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.012 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0.004 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.238 s
+Callback function called 0 scontact-view
+Time to end the dynamic nodes0.238 s
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.002 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.258 s
+Callback function called 0 scontact-view
+Time to end the dynamic nodes0.258 s
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.003 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.243 s
+Callback function called 0 scontact-view
+Time to end the dynamic nodes0.243 s
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.001 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.195 s
+Callback function called 0.001 scontact-view
+Time to end the dynamic nodes0.196 s
+Generating dist components...
+
+Time to end processing template0 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.002 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0.009 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.217 s
+Callback function called 0 scontact-view
+Time to end the dynamic nodes0.217 s
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.003 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.215 s
+Callback function called 0 scontact-view
+Time to end the dynamic nodes0.215 s
+Generating dist components...
+
+Time to end processing template0 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.003 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0.005 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.232 s
+Callback function called 0.001 scontact-view
+Time to end the dynamic nodes0.233 s
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.004 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.246 s
+Callback function called 0 scontact-view
+Time to end the dynamic nodes0.246 s
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.005 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.256 s
+Callback function called 0.001 scontact-list
+Time to end the dynamic nodes0.257 s
+Generating dist components...
+
+Time to end processing template0 s
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.001 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.217 s
+Callback function called 0 scontact-list
+Time to end the dynamic nodes0.217 s
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.002 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.226 s
+Callback function called 0.001 scontact-list
+Time to end the dynamic nodes0.226 s
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.002 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.208 s
+Callback function called 0.001 scontact-list
+Time to end the dynamic nodes0.209 s
+Generating dist components...
+
+Time to end processing template0 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.001 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.229 s
+Callback function called 0 scontact-list
+Time to end the dynamic nodes0.229 s
+Generating dist components...
+
+Time to end processing template0.002 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.001 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.227 s
+Callback function called 0 scontact-list
+Time to end the dynamic nodes0.227 s
+Generating dist components...
+
+Unexpected token viewContact in the file /Users/viswa-nts0283/crm_app/components/javascript/contact-list.js at 139:4
+Time to end processing template0.056 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.001 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.188 s
+Callback function called 0 scontact-list
+Time to end the dynamic nodes0.188 s
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.001 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.22 s
+Callback function called 0 scontact-list
+Time to end the dynamic nodes0.22 s
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.001 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.218 s
+Callback function called 0 scontact-list
+Time to end the dynamic nodes0.218 s
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.001 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.211 s
+Callback function called 0 scontact-list
+Time to end the dynamic nodes0.211 s
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.002 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.196 s
+Callback function called 0 scontact-list
+Time to end the dynamic nodes0.196 s
+Generating dist components...
+
+Time to end processing template0 s
+Consolidated file created in the dist/app.js
+
+Build components/Users/viswa-nts0283/crm_app/components/javascript/deal-list.jscalled
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.183 s
+Callback function called 0 sdeal-list
+Time to end the dynamic nodes0.183 s
+Generating dist components...
+
+Time to end processing template0 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.179 s
+Callback function called 0 sdeal-list
+Time to end the dynamic nodes0.181 s
+Generating dist components...
+
+Time to end processing template0 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.001 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.237 s
+Callback function called 0 sdeal-list
+Time to end the dynamic nodes0.237 s
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.001 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.242 s
+Callback function called 0 scrm-sidebar
+Time to end the dynamic nodes0.242 s
+Generating dist components...
+
+Time to end processing template0.002 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.004 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.218 s
+Callback function called 0 scrm-sidebar
+Time to end the dynamic nodes0.218 s
+Generating dist components...
+
+Time to end processing template0 s
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.003 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+Consolidated file created in the dist/app.js
+
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.191 s
+Callback function called 0 sdeal-list
+Time to end the dynamic nodes0.191 s
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.002 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.089 s
+Callback function called 0 sdeal-list
+Time to end the dynamic nodes0.089 s
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.002 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.108 s
+Callback function called 0 scontact-list
+Time to end the dynamic nodes0.108 s
+Generating dist components...
+
+Time to end processing template0.002 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.004 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.091 s
+Callback function called 0 sdeal-list
+Time to end the dynamic nodes0.092 s
+Generating dist components...
+
+Time to end processing template0.002 s
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.003 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.081 s
+Callback function called 0 sdeal-list
+Time to end the dynamic nodes0.081 s
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.004 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.113 s
+Callback function called 0 sdeal-list
+Time to end the dynamic nodes0.113 s
+Generating dist components...
+
+Time to end processing template0 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+[UnclosedTags Failed] =>../components/templates/deal-list.html
+Unclosed 'template' tag at /Users/viswa-nts0283/crm_app/components/templates/deal-list.html in 40 => <template is="for" items="{{column.items}}" item="deal" index="j">
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => undefined
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.074 s
+Callback function called 0 sdeal-list
+Time to end the dynamic nodes0.074 s
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => undefined
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.09 s
+Callback function called 0 sdeal-list
+Time to end the dynamic nodes0.09 s
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => undefined
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.067 s
+Callback function called 0 sdeal-list
+Time to end the dynamic nodes0.067 s
+Generating dist components...
+
+Time to end processing template0 s
+Consolidated file created in the dist/app.js
+
+Build components/Users/viswa-nts0283/crm_app/components/javascript/deal-view.jscalled
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => undefined
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.066 s
+Callback function called 0 sdeal-view
+Time to end the dynamic nodes0.066 s
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => undefined
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.067 s
+Callback function called 0.001 sdeal-view
+Time to end the dynamic nodes0.068 s
+Generating dist components...
+
+Warnings in the component :deal-view
+		Invalid component names : STAGES,STAGE_LABELS
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => undefined
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.119 s
+Callback function called 0 sdeal-view
+Time to end the dynamic nodes0.119 s
+Generating dist components...
+
+Warnings in the component :deal-view
+		Invalid component names : STAGES,STAGE_LABELS
+
+Time to end processing template0.002 s
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => undefined
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.213 s
+Callback function called 0.001 sdeal-view
+Time to end the dynamic nodes0.214 s
+Generating dist components...
+
+Warnings in the component :deal-view
+		Invalid component names : STAGES,STAGE_LABELS
+
+Time to end processing template0.002 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => undefined
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.132 s
+Callback function called 0 sdeal-view
+Time to end the dynamic nodes0.132 s
+Generating dist components...
+
+Warnings in the component :deal-view
+		Invalid component names : STAGES,STAGE_LABELS
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => undefined
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.098 s
+Callback function called 0 sdeal-view
+Time to end the dynamic nodes0.098 s
+Generating dist components...
+
+Warnings in the component :deal-view
+		Invalid component names : STAGES,STAGE_LABELS
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => undefined
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.115 s
+Callback function called 0 sdeal-view
+Time to end the dynamic nodes0.115 s
+Generating dist components...
+
+Warnings in the component :deal-view
+		Invalid component names : STAGES,STAGE_LABELS
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => undefined
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.129 s
+Callback function called 0.001 sdeal-view
+Time to end the dynamic nodes0.13 s
+Generating dist components...
+
+Warnings in the component :deal-view
+		Invalid component names : STAGES,STAGE_LABELS
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => undefined
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.096 s
+Callback function called 0 sdeal-view
+Time to end the dynamic nodes0.096 s
+Generating dist components...
+
+Warnings in the component :deal-view
+		Invalid component names : STAGES,STAGE_LABELS
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => undefined
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.138 s
+Callback function called 0 sdeal-view
+Time to end the dynamic nodes0.138 s
+Generating dist components...
+
+Warnings in the component :deal-view
+		Invalid component names : STAGES,STAGE_LABELS
+
+Time to end processing template0 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => undefined
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.113 s
+Callback function called 0 sdeal-view
+Time to end the dynamic nodes0.114 s
+Generating dist components...
+
+Warnings in the component :deal-view
+		Invalid component names : STAGES,STAGE_LABELS
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => undefined
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.159 s
+Callback function called 0.001 sdeal-list
+Time to end the dynamic nodes0.16 s
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => undefined
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.098 s
+Callback function called 0 sdeal-view
+Time to end the dynamic nodes0.098 s
+Generating dist components...
+
+Warnings in the component :deal-view
+		Invalid component names : STAGES,STAGE_LABELS
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => undefined
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.115 s
+Callback function called 0 sdeal-view
+Time to end the dynamic nodes0.115 s
+Generating dist components...
+
+Warnings in the component :deal-view
+		Invalid component names : STAGES,STAGE_LABELS
+
+Time to end processing template0 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => undefined
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0.014 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.108 s
+Callback function called 0 sdeal-view
+Time to end the dynamic nodes0.108 s
+Generating dist components...
+
+Warnings in the component :deal-view
+		Invalid component names : STAGES,STAGE_LABELS
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => undefined
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.064 s
+Callback function called 0 sdeal-view
+Time to end the dynamic nodes0.064 s
+Generating dist components...
+
+Warnings in the component :deal-view
+		Invalid component names : STAGES,STAGE_LABELS
+
+Error in Component : deal-view
+Cannot find template deal-view
+Time to end processing template0.081 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.004 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0.003 s
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => undefined
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0.001 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+Browser launched
+page opened
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0 sdeal-view
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Warnings in the component :deal-view
+		Invalid component names : STAGES,STAGE_LABELS
+
+Post method request get caught with url/post
+Time taken for end call back be 0 s
+Callback function called 0 sdeal-view
+Time to end the dynamic nodes0 s
+Generating dist components...
+
+Warnings in the component :deal-view
+		Invalid component names : STAGES,STAGE_LABELS
+
+Time to end processing templateundefined
+Time to end processing template0 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => undefined
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0.007 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.095 s
+Callback function called 0 sdeal-view
+Time to end the dynamic nodes0.096 s
+Generating dist components...
+
+Warnings in the component :deal-view
+		Invalid component names : STAGES,STAGE_LABELS
+
+Time to end processing template0 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => undefined
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0.004 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be 0.101 s
+Callback function called 0 sdeal-view
+Time to end the dynamic nodes0.101 s
+Generating dist components...
+
+Warnings in the component :deal-view
+		Invalid component names : STAGES,STAGE_LABELS
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => undefined
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0.007 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => undefined
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0.003 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0 sdeal-view
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Warnings in the component :deal-view
+		Invalid component names : STAGES,STAGE_LABELS
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => undefined
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0.009 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0 sdeal-view
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Warnings in the component :deal-view
+		Invalid component names : STAGES,STAGE_LABELS
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => undefined
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0.003 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0 sdeal-view
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Warnings in the component :deal-view
+		Invalid component names : STAGES,STAGE_LABELS
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => undefined
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0.013 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0.001 sdeal-view
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Warnings in the component :deal-view
+		Invalid component names : STAGES,STAGE_LABELS
+
+Time to end processing template0.002 s
+Consolidated file created in the dist/app.js
+
+Build components/Users/viswa-nts0283/crm_app/components/javascript/deal-create.jscalled
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => undefined
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0 sdeal-create
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => undefined
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0 sdeal-create
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => undefined
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0.001 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0 sdeal-create
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Time to end processing template0.002 s
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => undefined
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0 sdeal-create
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => undefined
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0.001 sdeal-create
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Time to end processing template0.011 s
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+[UnclosedTags Failed] =>../components/templates/deal-create.html
+Unclosed 'template' tag at /Users/viswa-nts0283/crm_app/components/templates/deal-create.html in 1 => <template tag-name="deal-create">
+[UnclosedTags Failed] =>../components/templates/deal-create.html
+Unclosed 'div' tag at /Users/viswa-nts0283/crm_app/components/templates/deal-create.html in 2 => <div class="page-container">
+[UnclosedTags Failed] =>../components/templates/deal-create.html
+Unclosed 'template' tag at /Users/viswa-nts0283/crm_app/components/templates/deal-create.html in 20 => <template lyte-else>
+[UnclosedTags Failed] =>../components/templates/deal-create.html
+Unclosed 'form' tag at /Users/viswa-nts0283/crm_app/components/templates/deal-create.html in 22 => <form onsubmit="{{action('createDeal', event)}}">
+[UnclosedTags Failed] =>../components/templates/deal-create.html
+Unopened 'form' tag at /Users/viswa-nts0283/crm_app/components/templates/deal-create.html in 114 => </form>
+[UnclosedTags Failed] =>../components/templates/deal-create.html
+Unopened 'div' tag at /Users/viswa-nts0283/crm_app/components/templates/deal-create.html in 115 => </div>
+[UnclosedTags Failed] =>../components/templates/deal-create.html
+Unopened 'template' tag at /Users/viswa-nts0283/crm_app/components/templates/deal-create.html in 116 => </template>
+[UnclosedTags Failed] =>../components/templates/deal-create.html
+Unopened 'div' tag at /Users/viswa-nts0283/crm_app/components/templates/deal-create.html in 117 => </div>
+[UnclosedTags Failed] =>../components/templates/deal-create.html
+Unopened 'template' tag at /Users/viswa-nts0283/crm_app/components/templates/deal-create.html in 118 => </template>
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.002 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0 sdeal-create
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.005 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0 sdeal-create
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.002 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0 sdeal-create
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.003 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0 sdeal-create
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Time to end processing template0 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.002 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0.015 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0 sdeal-create
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.002 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0.007 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0 sdeal-create
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.003 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0 sdeal-create
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.001 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:50549/devtools/browser/13ebd322-1cfc-453f-9cc7-b2bd23e5838b
+Creating new browser instance 
+New browser instance launched
+browser Endpoint ws://127.0.0.1:55667/devtools/browser/5491a1bf-2dfd-4d67-af06-663c44601a6a
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0 sdeal-create
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Time to end processing template0.002 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.002 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0.001 s
+browser Endpoint ws://127.0.0.1:55667/devtools/browser/5491a1bf-2dfd-4d67-af06-663c44601a6a
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0 sdeal-create
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.001 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:55667/devtools/browser/5491a1bf-2dfd-4d67-af06-663c44601a6a
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0 sdeal-create
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Time to end processing template0 s
+Consolidated file created in the dist/app.js
+
+Build components/Users/viswa-nts0283/crm_app/components/javascript/activity-list.jscalled
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.001 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:55667/devtools/browser/5491a1bf-2dfd-4d67-af06-663c44601a6a
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0 sactivity-list
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.001 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0.001 s
+browser Endpoint ws://127.0.0.1:55667/devtools/browser/5491a1bf-2dfd-4d67-af06-663c44601a6a
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0 sactivity-list
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Warnings in the component :activity-list
+		Invalid component names : ACTIVITY_TYPES,TERMINAL_STATUSES
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.001 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:55667/devtools/browser/5491a1bf-2dfd-4d67-af06-663c44601a6a
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0.001 sactivity-list
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Warnings in the component :activity-list
+		Invalid component names : ACTIVITY_TYPES,TERMINAL_STATUSES
+
+Time to end processing template0 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.004 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:55667/devtools/browser/5491a1bf-2dfd-4d67-af06-663c44601a6a
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0 sactivity-list
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Warnings in the component :activity-list
+		Invalid component names : ACTIVITY_TYPES,TERMINAL_STATUSES
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.003 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:55667/devtools/browser/5491a1bf-2dfd-4d67-af06-663c44601a6a
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0 scrm-sidebar
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.001 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:55667/devtools/browser/5491a1bf-2dfd-4d67-af06-663c44601a6a
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0 scrm-sidebar
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.001 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:55667/devtools/browser/5491a1bf-2dfd-4d67-af06-663c44601a6a
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0 scrm-sidebar
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.001 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:55667/devtools/browser/5491a1bf-2dfd-4d67-af06-663c44601a6a
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0 scrm-sidebar
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.002 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:55667/devtools/browser/5491a1bf-2dfd-4d67-af06-663c44601a6a
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0 scrm-sidebar
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.002 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:55667/devtools/browser/5491a1bf-2dfd-4d67-af06-663c44601a6a
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0 sactivity-list
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Warnings in the component :activity-list
+		Invalid component names : ACTIVITY_TYPES,TERMINAL_STATUSES
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.001 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:55667/devtools/browser/5491a1bf-2dfd-4d67-af06-663c44601a6a
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0 sactivity-list
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Warnings in the component :activity-list
+		Invalid component names : ACTIVITY_TYPES,TERMINAL_STATUSES
+
+Time to end processing template0.002 s
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Build components/Users/viswa-nts0283/crm_app/components/javascript/company-list.jscalled
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:55667/devtools/browser/5491a1bf-2dfd-4d67-af06-663c44601a6a
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0 scompany-list
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Time to end processing template0 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.002 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:55667/devtools/browser/5491a1bf-2dfd-4d67-af06-663c44601a6a
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0 scompany-list
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.001 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:55667/devtools/browser/5491a1bf-2dfd-4d67-af06-663c44601a6a
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0.001 scompany-list
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Time to end processing template0.002 s
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Build components/Users/viswa-nts0283/crm_app/components/javascript/user-list.jscalled
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.001 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:55667/devtools/browser/5491a1bf-2dfd-4d67-af06-663c44601a6a
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0 suser-list
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.003 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:55667/devtools/browser/5491a1bf-2dfd-4d67-af06-663c44601a6a
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0 suser-list
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Time to end processing template0.002 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.001 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:55667/devtools/browser/5491a1bf-2dfd-4d67-af06-663c44601a6a
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0 suser-list
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Build components/Users/viswa-nts0283/crm_app/components/javascript/profile-list.jscalled
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.001 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:55667/devtools/browser/5491a1bf-2dfd-4d67-af06-663c44601a6a
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0 sprofile-list
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.001 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:55667/devtools/browser/5491a1bf-2dfd-4d67-af06-663c44601a6a
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0 sprofile-list
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Time to end processing template0.002 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.001 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:55667/devtools/browser/5491a1bf-2dfd-4d67-af06-663c44601a6a
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0 sprofile-list
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.002 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:55667/devtools/browser/5491a1bf-2dfd-4d67-af06-663c44601a6a
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0 scrm-sidebar
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.001 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:55667/devtools/browser/5491a1bf-2dfd-4d67-af06-663c44601a6a
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0 scrm-sidebar
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Build components/Users/viswa-nts0283/crm_app/components/javascript/role-list.jscalled
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.001 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:55667/devtools/browser/5491a1bf-2dfd-4d67-af06-663c44601a6a
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0.001 srole-list
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Time to end processing template0 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.001 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:55667/devtools/browser/5491a1bf-2dfd-4d67-af06-663c44601a6a
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0 srole-list
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.001 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:55667/devtools/browser/5491a1bf-2dfd-4d67-af06-663c44601a6a
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0.001 srole-list
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Time to end processing template0 s
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.003 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:55667/devtools/browser/5491a1bf-2dfd-4d67-af06-663c44601a6a
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0 scrm-sidebar
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Time to end processing template0 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.002 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:55667/devtools/browser/5491a1bf-2dfd-4d67-af06-663c44601a6a
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0 scrm-sidebar
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.002 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:55667/devtools/browser/5491a1bf-2dfd-4d67-af06-663c44601a6a
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0 srole-list
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Time to end processing template0.002 s
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.002 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:55667/devtools/browser/5491a1bf-2dfd-4d67-af06-663c44601a6a
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0 scrm-dashboard
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.002 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:55667/devtools/browser/5491a1bf-2dfd-4d67-af06-663c44601a6a
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0 scrm-dashboard
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.002 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:55667/devtools/browser/5491a1bf-2dfd-4d67-af06-663c44601a6a
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0 scrm-dashboard
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Time to end processing template0 s
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.003 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:55667/devtools/browser/5491a1bf-2dfd-4d67-af06-663c44601a6a
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0 scrm-dashboard
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.002 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:55667/devtools/browser/5491a1bf-2dfd-4d67-af06-663c44601a6a
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0.001 scrm-dashboard
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Error in Component : crm-dashboard
+Cannot find template crm-dashboard
+Time to end processing template0.044 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.001 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:55667/devtools/browser/5491a1bf-2dfd-4d67-af06-663c44601a6a
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0 scrm-dashboard
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.001 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:55667/devtools/browser/5491a1bf-2dfd-4d67-af06-663c44601a6a
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0 slogin-comp
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.002 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:55667/devtools/browser/5491a1bf-2dfd-4d67-af06-663c44601a6a
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0 slogin-comp
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+[Removed] => dist/data-store/models/user.js
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.001 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:55667/devtools/browser/5491a1bf-2dfd-4d67-af06-663c44601a6a
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0 slogin-comp
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Time to end processing template0 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.001 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:55667/devtools/browser/5491a1bf-2dfd-4d67-af06-663c44601a6a
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0 slogin-comp
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.002 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:55667/devtools/browser/5491a1bf-2dfd-4d67-af06-663c44601a6a
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0 slogin-comp
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.002 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:55667/devtools/browser/5491a1bf-2dfd-4d67-af06-663c44601a6a
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0.001 sdeal-create
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:55667/devtools/browser/5491a1bf-2dfd-4d67-af06-663c44601a6a
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0 sdeal-create
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.003 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:55667/devtools/browser/5491a1bf-2dfd-4d67-af06-663c44601a6a
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0 sdeal-create
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.007 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:55667/devtools/browser/5491a1bf-2dfd-4d67-af06-663c44601a6a
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0.001 sdeal-create
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Time to end processing template0 s
+Consolidated file created in the dist/app.js
+
+Consolidated file created in the dist/app.js
+
+Searching for syntax errors.....
+Finding the unclosed tags compilation over
+[Time] => find unclosedTags => 0.003 s
+Running compilerule ...
+[Time] => Convert Lyte syntax => 0 s
+browser Endpoint ws://127.0.0.1:55667/devtools/browser/5491a1bf-2dfd-4d67-af06-663c44601a6a
+Browser launched
+page opened
+Post method request get caught with url/post
+Time taken for end call back be undefined
+Callback function called 0 sdeal-create
+Time to end the dynamic nodesundefined
+Generating dist components...
+
+Time to end processing template0.001 s
+Consolidated file created in the dist/app.js
+

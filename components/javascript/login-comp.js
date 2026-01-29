@@ -1,12 +1,8 @@
 Lyte.Component.register("login-comp", {
-    // 1. LOAD MIXIN instead of Service
-    // Ensure 'auth-mixin' (and 'api-mixin') are loaded in index.html
-    // mixins: ["auth-mixin"],
-
     data : function(){
         return {
-            username : Lyte.attr("string", { default: "ceo" }),
-            password : Lyte.attr("string", { default: "password" }),
+            username : Lyte.attr("string", { default: "" }),
+            password : Lyte.attr("string", { default: "" }),
             error : Lyte.attr("string", { default: "" }),
             isLoading : Lyte.attr("boolean", { default: false })
         }
@@ -28,8 +24,6 @@ Lyte.Component.register("login-comp", {
             this.setData('isLoading', true);
             this.setData('error', '');
 
-            // 2. CALL MIXIN METHOD DIRECTLY
-            // 'loginUser' is defined in auth-mixin.js and merged into 'this'
             this.loginUser(username, password)
                 .then(function(res) {
                     console.log("Login successful", res);

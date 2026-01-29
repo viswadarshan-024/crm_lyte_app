@@ -21,10 +21,9 @@ Lyte.Mixin.register("api-mixin", {
             credentials: 'include'
         };
 
-        // --- CRITICAL FIX: Handle Body vs Query Params ---
+        // --- Body / Query handling (unchanged) ---
         if (options.body) {
             if (method === 'GET' || method === 'HEAD') {
-                // 1. For GET: Convert body object to URL Query String (?key=value)
                 let params = options.body;
                 let queryString = Object.keys(params).map(function(key) {
                     return encodeURIComponent(key) + '=' + encodeURIComponent(params[key]);
@@ -34,7 +33,6 @@ Lyte.Mixin.register("api-mixin", {
                     url += (url.includes('?') ? '&' : '?') + queryString;
                 }
             } else {
-                // 2. For POST/PUT: Send as JSON Body
                 if (headers['Content-Type'] && headers['Content-Type'].includes('json')) {
                     fetchConfig.body = JSON.stringify(options.body);
                 } else {
@@ -44,26 +42,35 @@ Lyte.Mixin.register("api-mixin", {
         }
 
         return fetch(url, fetchConfig)
-            .then(function(response) {
-                if (!response.ok) {
-                    if (response.status === 401) {
-                        localStorage.removeItem('user');
-                        window.location.href = "/";
-                        throw new Error("Unauthorized");
-                    }
-                    return response.text().then(function(text) {
-                        let errData;
-                        try { errData = text ? JSON.parse(text) : {}; }
-                        catch (e) { errData = { message: text }; }
-                        let error = new Error(errData.message || "API Error");
-                        error.data = errData;
-                        throw error;
-                    });
+            .then(async function(response) {
+
+                if (response.status === 401) {
+                    localStorage.removeItem('user');
+                    window.location.href = "/";
+                    throw new Error("Unauthorized");
                 }
-                return response.json();
+
+                if (!response.ok) {
+                    const text = await response.text();
+                    let errData;
+                    try { errData = text ? JSON.parse(text) : {}; }
+                    catch (e) { errData = { message: text }; }
+                    let error = new Error(errData.message || "API Error");
+                    error.data = errData;
+                    throw error;
+                }
+
+                // --------- ONLY FIX: SAFE JSON PARSING ---------
+                const contentType = response.headers.get("content-type") || "";
+                if (contentType.includes("application/json")) {
+                    return response.json();
+                } else {
+                    const text = await response.text();
+                    throw new Error("Expected JSON but received HTML:\n" + text.substring(0, 300));
+                }
             })
             .then(function(data) {
-                if (data.responseData !== undefined && data.data === undefined) {
+                if (data && data.responseData !== undefined && data.data === undefined) {
                     data.data = data.responseData;
                 }
                 return data;

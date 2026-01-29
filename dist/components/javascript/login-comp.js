@@ -3,14 +3,10 @@ _template:"<template tag-name=\"login-comp\"> <div class=\"login-wrapper\" style
 _dynamicNodes : [{"type":"attr","position":[1,1,1,3]},{"type":"if","position":[1,1,1,3],"cases":{},"default":{}},{"type":"attr","position":[1,1,1,9,1]},{"type":"attr","position":[1,1,1,9,1,1]},{"type":"if","position":[1,1,1,9,1,1],"cases":{},"default":{}}],
 _observedAttributes :["username","password","error","isLoading"],
 
-    // 1. LOAD MIXIN instead of Service
-    // Ensure 'auth-mixin' (and 'api-mixin') are loaded in index.html
-    // mixins: ["auth-mixin"],
-
     data : function(){
         return {
-            username : Lyte.attr("string", { default: "ceo" }),
-            password : Lyte.attr("string", { default: "password" }),
+            username : Lyte.attr("string", { default: "" }),
+            password : Lyte.attr("string", { default: "" }),
             error : Lyte.attr("string", { default: "" }),
             isLoading : Lyte.attr("boolean", { default: false })
         }
@@ -32,8 +28,6 @@ _observedAttributes :["username","password","error","isLoading"],
             this.setData('isLoading', true);
             this.setData('error', '');
 
-            // 2. CALL MIXIN METHOD DIRECTLY
-            // 'loginUser' is defined in auth-mixin.js and merged into 'this'
             this.loginUser(username, password)
                 .then(function(res) {
                     console.log("Login successful", res);

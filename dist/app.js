@@ -70,10 +70,9 @@ Lyte.Mixin.register("api-mixin", {
             credentials: 'include'
         };
 
-        // --- CRITICAL FIX: Handle Body vs Query Params ---
+        // --- Body / Query handling (unchanged) ---
         if (options.body) {
             if (method === 'GET' || method === 'HEAD') {
-                // 1. For GET: Convert body object to URL Query String (?key=value)
                 let params = options.body;
                 let queryString = Object.keys(params).map(function(key) {
                     return encodeURIComponent(key) + '=' + encodeURIComponent(params[key]);
@@ -83,7 +82,6 @@ Lyte.Mixin.register("api-mixin", {
                     url += (url.includes('?') ? '&' : '?') + queryString;
                 }
             } else {
-                // 2. For POST/PUT: Send as JSON Body
                 if (headers['Content-Type'] && headers['Content-Type'].includes('json')) {
                     fetchConfig.body = JSON.stringify(options.body);
                 } else {
@@ -93,32 +91,42 @@ Lyte.Mixin.register("api-mixin", {
         }
 
         return fetch(url, fetchConfig)
-            .then(function(response) {
-                if (!response.ok) {
-                    if (response.status === 401) {
-                        localStorage.removeItem('user');
-                        window.location.href = "/";
-                        throw new Error("Unauthorized");
-                    }
-                    return response.text().then(function(text) {
-                        let errData;
-                        try { errData = text ? JSON.parse(text) : {}; }
-                        catch (e) { errData = { message: text }; }
-                        let error = new Error(errData.message || "API Error");
-                        error.data = errData;
-                        throw error;
-                    });
+            .then(async function(response) {
+
+                if (response.status === 401) {
+                    localStorage.removeItem('user');
+                    window.location.href = "/";
+                    throw new Error("Unauthorized");
                 }
-                return response.json();
+
+                if (!response.ok) {
+                    const text = await response.text();
+                    let errData;
+                    try { errData = text ? JSON.parse(text) : {}; }
+                    catch (e) { errData = { message: text }; }
+                    let error = new Error(errData.message || "API Error");
+                    error.data = errData;
+                    throw error;
+                }
+
+                // --------- ONLY FIX: SAFE JSON PARSING ---------
+                const contentType = response.headers.get("content-type") || "";
+                if (contentType.includes("application/json")) {
+                    return response.json();
+                } else {
+                    const text = await response.text();
+                    throw new Error("Expected JSON but received HTML:\n" + text.substring(0, 300));
+                }
             })
             .then(function(data) {
-                if (data.responseData !== undefined && data.data === undefined) {
+                if (data && data.responseData !== undefined && data.data === undefined) {
                     data.data = data.responseData;
                 }
                 return data;
             });
     }
 });
+
 Lyte.Mixin.register("auth-mixin", {
 
     // 1. Move PERMISSIONS to a helper method to guarantee access
@@ -908,21 +916,12 @@ Lyte.Mixin.register("utils-mixin", {
 });
 Lyte.Router.registerRoute("crm-app", {
 
-    // The 'transition' argument tells us where the user is trying to go
     beforeModel: function(transition) {
-
-        // 1. Authentication Check
         let user = localStorage.getItem('user');
         if (!user) {
             this.replaceWith('login');
-            return; // Stop execution
+            return;
         }
-
-        // 2. Smart Redirect
-        // Check if the user is aiming for the root 'crm-app' or 'crm-app.index'.
-        // We use 'transition.targetName' to see their destination.
-        // If they are trying to go to 'crm-app.contact-list', this condition will be false,
-        // allowing them to proceed to contacts correctly.
         if (transition.targetName === 'crm-app' || transition.targetName === 'crm-app.index') {
             this.replaceWith('crm-app.crm-dashboard');
         }
@@ -1222,14 +1221,10 @@ _template:"<template tag-name=\"login-comp\"> <div class=\"login-wrapper\" style
 _dynamicNodes : [{"type":"attr","position":[1,1,1,3]},{"type":"if","position":[1,1,1,3],"cases":{},"default":{}},{"type":"attr","position":[1,1,1,9,1]},{"type":"attr","position":[1,1,1,9,1,1]},{"type":"if","position":[1,1,1,9,1,1],"cases":{},"default":{}}],
 _observedAttributes :["username","password","error","isLoading"],
 
-    // 1. LOAD MIXIN instead of Service
-    // Ensure 'auth-mixin' (and 'api-mixin') are loaded in index.html
-    // mixins: ["auth-mixin"],
-
     data : function(){
         return {
-            username : Lyte.attr("string", { default: "ceo" }),
-            password : Lyte.attr("string", { default: "password" }),
+            username : Lyte.attr("string", { default: "" }),
+            password : Lyte.attr("string", { default: "" }),
             error : Lyte.attr("string", { default: "" }),
             isLoading : Lyte.attr("boolean", { default: false })
         }
@@ -1251,8 +1246,6 @@ _observedAttributes :["username","password","error","isLoading"],
             this.setData('isLoading', true);
             this.setData('error', '');
 
-            // 2. CALL MIXIN METHOD DIRECTLY
-            // 'loginUser' is defined in auth-mixin.js and merged into 'this'
             this.loginUser(username, password)
                 .then(function(res) {
                     console.log("Login successful", res);
@@ -1292,10 +1285,6 @@ _observedAttributes :["features"],
 	methods : {
 		// Functions which can be used as callback in the component.
 	}
-});
-
-store.registerModel("user",{
-
 });
 
 Lyte.Router.registerRoute("crm-app.crm-dashboard", {
@@ -1959,16 +1948,16 @@ Lyte.Router.registerRoute("crm-app.deal-create", {
     }
 });
 Lyte.Component.register("deal-create", {
-_template:"<template tag-name=\"deal-create\"> <div class=\"page-container\"> <header class=\"page-header\"> <div class=\"header-left\"> <button onclick=\"{{action('cancel')}}\" class=\"btn-icon\"> <svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><polyline points=\"15 18 9 12 15 6\"></polyline></svg> </button> <h1 class=\"header-title\">New Deal</h1> </div> </header> <template is=\"if\" value=\"{{isLoading}}\"><template case=\"true\"> <div class=\"loading-container\"> <div class=\"spinner\"></div> <p>Loading configuration...</p> </div> </template><template case=\"false\"> <div class=\"form-card\"> <form onsubmit=\"{{action('createDeal',event)}}\"> <div class=\"form-section\"> <h3 class=\"section-title\">Deal Details</h3> <div class=\"form-group\"> <label>Deal Title <span class=\"required\">*</span></label> <input type=\"text\" name=\"title\" lyte-model=\"title\" class=\"form-input\" placeholder=\"e.g. Acme Corp Enterprise License\" maxlength=\"150\"> </div> <div class=\"form-row\"> <div class=\"form-group half\"> <label>Amount ($) <span class=\"required\">*</span></label> <input type=\"number\" name=\"amount\" lyte-model=\"amount\" class=\"form-input\" step=\"0.01\" min=\"0.01\" placeholder=\"0.00\"> </div> <div class=\"form-group half\"> <label>Order Type <span class=\"required\">*</span></label> <select lyte-model=\"orderType\" class=\"form-select\"> <option is=\"for\" lyte-for=\"true\" items=\"{{orderTypes}}\" item=\"type\"></option> </select> </div> </div> </div> <div class=\"form-section\"> <h3 class=\"section-title\">Ownership</h3> <div class=\"form-row\"> <div class=\"form-group half\"> <label>Company <span class=\"required\">*</span></label> <select lyte-model=\"selectedCompany\" onchange=\"{{action('onCompanySelect',this)}}\" class=\"form-select\"> <option value=\"\">Select Company...</option> <option is=\"for\" lyte-for=\"true\" items=\"{{companies}}\" item=\"comp\"></option> </select> </div> <div class=\"form-group half\"> <label>Assigned To <span class=\"required\">*</span></label> <select lyte-model=\"assignedUserId\" class=\"form-select\"> <option is=\"for\" lyte-for=\"true\" items=\"{{users}}\" item=\"u\"></option> </select> </div> </div> <div class=\"form-group\"> <label>Contacts <span class=\"hint-text\">(Select company to view)</span></label> <div class=\"contacts-box\"> <template is=\"if\" value=\"{{expHandlers(selectedCompany,'!')}}\"><template case=\"true\"> <div class=\"empty-msg\">Please select a company first.</div> </template><template case=\"false\"> <template is=\"if\" value=\"{{expHandlers(filteredContacts.length,'===',0)}}\"><template case=\"true\"> <div class=\"empty-msg\">No contacts found.</div> </template><template case=\"false\"> <template is=\"for\" items=\"{{filteredContacts}}\" item=\"c\"> <label class=\"contact-row\"> <input type=\"checkbox\" onchange=\"{{action('toggleContact',c.id,event)}}\"> <div class=\"contact-text\"> <div class=\"c-name\">{{c.name}}</div> <div class=\"c-job\">{{c.jobTitle}}</div> </div> </label> </template> </template></template> </template></template> </div> </div> </div> <div class=\"form-actions\"> <button type=\"button\" onclick=\"{{action('cancel')}}\" class=\"btn-secondary\">Cancel</button> <button type=\"submit\" class=\"btn-primary\" disabled=\"{{isSaving}}\"> <template is=\"if\" value=\"{{isSaving}}\"><template case=\"true\">Saving...</template><template case=\"false\">Create Deal</template></template> </button> </div> </form> </div> </template></template> </div> </template>\n<style>.page-container {\n    padding: 20px;\n    background-color: #f4f7f6;\n    height: 100vh;\n    overflow-y: auto;\n}\n\n.form-card {\n    background: white;\n    max-width: 800px;\n    margin: 0 auto;\n    padding: 30px;\n    border-radius: 8px;\n    box-shadow: 0 1px 3px rgba(0,0,0,0.1);\n}\n\n.form-section { margin-bottom: 30px; }\n.section-title {\n    font-size: 12px; font-weight: bold; text-transform: uppercase;\n    color: #94a3b8; border-bottom: 1px solid #e2e8f0;\n    padding-bottom: 8px; margin-bottom: 15px;\n}\n\n.form-row { display: flex; gap: 20px; }\n.half { flex: 1; }\n\n.form-group { margin-bottom: 15px; }\n.form-group label {\n    display: block; font-size: 14px; font-weight: 500;\n    color: #334155; margin-bottom: 5px;\n}\n.required { color: #ef4444; }\n.hint-text { font-weight: normal; font-size: 12px; color: #94a3b8; margin-left: 5px; }\n\n.form-input, .form-select {\n    width: 100%; padding: 10px; border: 1px solid #cbd5e1;\n    border-radius: 6px; font-size: 14px; box-sizing: border-box; /* Fix width issues */\n}\n.form-input:focus, .form-select:focus { outline: none; border-color: #3b82f6; }\n\n/* CONTACTS BOX */\n.contacts-box {\n    border: 1px solid #cbd5e1; border-radius: 6px;\n    background: #f8fafc;\n    height: 200px; overflow-y: auto;\n}\n.empty-msg {\n    padding: 20px; text-align: center; color: #94a3b8; font-size: 13px;\n    display: flex; align-items: center; justify-content: center; height: 100%;\n}\n\n.contact-row {\n    display: flex; align-items: center; gap: 10px;\n    padding: 10px 15px; border-bottom: 1px solid #e2e8f0;\n    cursor: pointer; background: white;\n}\n.contact-row:hover { background: #f1f5f9; }\n.contact-row input { cursor: pointer; }\n\n.c-name { font-size: 14px; font-weight: 500; color: #1e293b; }\n.c-job { font-size: 12px; color: #64748b; }\n\n/* ACTIONS */\n.form-actions {\n    display: flex; justify-content: flex-end; gap: 10px;\n    padding-top: 20px; border-top: 1px solid #e2e8f0;\n}\n.btn-primary, .btn-secondary {\n    padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: 500; font-size: 14px;\n}\n.btn-primary { background: #2563eb; color: white; border: none; }\n.btn-secondary { background: white; border: 1px solid #cbd5e1; color: #334155; }\n.btn-primary:disabled { background: #93c5fd; cursor: not-allowed; }</style>",
-_dynamicNodes : [{"type":"attr","position":[1,1,1,1]},{"type":"attr","position":[1,3]},{"type":"if","position":[1,3],"cases":{"true":{"dynamicNodes":[]},"false":{"dynamicNodes":[{"type":"attr","position":[1,1]},{"type":"attr","position":[1,1,1,5,3,3,1]},{"type":"for","position":[1,1,1,5,3,3,1],"dynamicNodes":[{"type":"attr","position":[1]},{"type":"text","position":[1,0]}],"actualTemplate":"<template is=\"for\" items=\"{{orderTypes}}\" item=\"type\"> <option value=\"{{type}}\">{{type}}</option> </template>"},{"type":"attr","position":[1,1,3,3,1,3]},{"type":"attr","position":[1,1,3,3,1,3,3]},{"type":"for","position":[1,1,3,3,1,3,3],"dynamicNodes":[{"type":"attr","position":[1]},{"type":"text","position":[1,0]}],"actualTemplate":"<template is=\"for\" items=\"{{companies}}\" item=\"comp\"> <option value=\"{{comp.id}}\">{{comp.name}}</option> </template>"},{"type":"attr","position":[1,1,3,3,3,3,1]},{"type":"for","position":[1,1,3,3,3,3,1],"dynamicNodes":[{"type":"attr","position":[1]},{"type":"text","position":[1,0]},{"type":"text","position":[1,2]}],"actualTemplate":"<template is=\"for\" items=\"{{users}}\" item=\"u\"> <option value=\"{{u.id}}\">{{u.fullName}} ({{u.roleName}})</option> </template>"},{"type":"attr","position":[1,1,3,5,3,1]},{"type":"if","position":[1,1,3,5,3,1],"cases":{"true":{"dynamicNodes":[]},"false":{"dynamicNodes":[{"type":"attr","position":[1]},{"type":"if","position":[1],"cases":{"true":{"dynamicNodes":[]},"false":{"dynamicNodes":[{"type":"attr","position":[1]},{"type":"for","position":[1],"dynamicNodes":[{"type":"attr","position":[1,1]},{"type":"text","position":[1,3,1,0]},{"type":"text","position":[1,3,3,0]}]}]}},"default":{}}]}},"default":{}},{"type":"attr","position":[1,1,5,1]},{"type":"attr","position":[1,1,5,3]},{"type":"attr","position":[1,1,5,3,1]},{"type":"if","position":[1,1,5,3,1],"cases":{"true":{"dynamicNodes":[]},"false":{"dynamicNodes":[]}},"default":{}}]}},"default":{}}],
+_template:"<template tag-name=\"deal-create\"> <div class=\"page-container\"> <header class=\"page-header\"> <div class=\"header-left\"> <button onclick=\"{{action('cancel')}}\" class=\"btn-icon\"> <svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><polyline points=\"15 18 9 12 15 6\"></polyline></svg> </button> <h1 class=\"header-title\">New Deal</h1> </div> </header> <template is=\"if\" value=\"{{isLoading}}\"><template case=\"true\"> <div class=\"loading-container\"> <div class=\"spinner\"></div> <p>Loading configuration...</p> </div> </template><template case=\"false\"> <div class=\"form-card\"> <form onsubmit=\"return false;\"> <div class=\"form-section\"> <h3 class=\"section-title\">Deal Details</h3> <div class=\"form-group\"> <label>Deal Title <span class=\"required\">*</span></label> <input type=\"text\" id=\"inp_title\" lyte-model=\"title\" class=\"form-input\" placeholder=\"e.g. Acme Corp Enterprise License\" maxlength=\"150\"> </div> <div class=\"form-row\"> <div class=\"form-group half\"> <label>Amount ($) <span class=\"required\">*</span></label> <input type=\"number\" id=\"inp_amount\" lyte-model=\"amount\" class=\"form-input\" step=\"0.01\" min=\"0.01\" placeholder=\"0.00\"> </div> <div class=\"form-group half\"> <label>Order Type <span class=\"required\">*</span></label> <select lyte-model=\"orderType\" class=\"form-select\"> <option is=\"for\" lyte-for=\"true\" items=\"{{orderTypes}}\" item=\"type\"></option> </select> </div> </div> </div> <div class=\"form-section\"> <h3 class=\"section-title\">Ownership</h3> <div class=\"form-row\"> <div class=\"form-group half\"> <label>Company <span class=\"required\">*</span></label> <select id=\"sel_company\" lyte-model=\"selectedCompany\" onchange=\"{{action('onCompanySelect',event)}}\" class=\"form-select\"> <option value=\"\">Select Company...</option> <option is=\"for\" lyte-for=\"true\" items=\"{{companies}}\" item=\"comp\"></option> </select> </div> <div class=\"form-group half\"> <label>Assigned To <span class=\"required\">*</span></label> <select lyte-model=\"assignedUserId\" class=\"form-select\"> <option is=\"for\" lyte-for=\"true\" items=\"{{users}}\" item=\"u\"></option> </select> </div> </div> <div class=\"form-group\"> <label>Contacts <span class=\"hint-text\">(Select company to view)</span></label> <div class=\"contacts-box\"> <template is=\"if\" value=\"{{expHandlers(selectedCompany,'!')}}\"><template case=\"true\"> <div class=\"empty-msg\">Please select a company first.</div> </template><template case=\"false\"> <template is=\"if\" value=\"{{expHandlers(filteredContacts.length,'===',0)}}\"><template case=\"true\"> <div class=\"empty-msg\">No contacts found.</div> </template><template case=\"false\"> <template is=\"for\" items=\"{{filteredContacts}}\" item=\"c\"> <label class=\"contact-row\"> <input type=\"checkbox\" onchange=\"{{action('toggleContact',c.id,event)}}\"> <div class=\"contact-text\"> <div class=\"c-name\">{{c.name}}</div> <div class=\"c-job\">{{c.jobTitle}}</div> </div> </label> </template> </template></template> </template></template> </div> </div> </div> <div class=\"form-actions\"> <button type=\"button\" onclick=\"{{action('cancel')}}\" class=\"btn-secondary\">Cancel</button> <button type=\"button\" onclick=\"{{action('createDeal')}}\" class=\"btn-primary\" disabled=\"{{isSaving}}\"> <template is=\"if\" value=\"{{isSaving}}\"><template case=\"true\">Saving...</template><template case=\"false\">Create Deal</template></template> </button> </div> </form> </div> </template></template> </div> </template>\n<style>.page-container {\n    padding: 20px;\n    background-color: #f4f7f6;\n    height: 100vh;\n    overflow-y: auto;\n}\n\n.form-card {\n    background: white;\n    max-width: 800px;\n    margin: 0 auto;\n    padding: 30px;\n    border-radius: 8px;\n    box-shadow: 0 1px 3px rgba(0,0,0,0.1);\n}\n\n.form-section { margin-bottom: 30px; }\n.section-title {\n    font-size: 12px; font-weight: bold; text-transform: uppercase;\n    color: #94a3b8; border-bottom: 1px solid #e2e8f0;\n    padding-bottom: 8px; margin-bottom: 15px;\n}\n\n.form-row { display: flex; gap: 20px; }\n.half { flex: 1; }\n\n.form-group { margin-bottom: 15px; }\n.form-group label {\n    display: block; font-size: 14px; font-weight: 500;\n    color: #334155; margin-bottom: 5px;\n}\n.required { color: #ef4444; }\n.hint-text { font-weight: normal; font-size: 12px; color: #94a3b8; margin-left: 5px; }\n\n.form-input, .form-select {\n    width: 100%; padding: 10px; border: 1px solid #cbd5e1;\n    border-radius: 6px; font-size: 14px; box-sizing: border-box; /* Fix width issues */\n}\n.form-input:focus, .form-select:focus { outline: none; border-color: #3b82f6; }\n\n/* CONTACTS BOX */\n.contacts-box {\n    border: 1px solid #cbd5e1; border-radius: 6px;\n    background: #f8fafc;\n    height: 200px; overflow-y: auto;\n}\n.empty-msg {\n    padding: 20px; text-align: center; color: #94a3b8; font-size: 13px;\n    display: flex; align-items: center; justify-content: center; height: 100%;\n}\n\n.contact-row {\n    display: flex; align-items: center; gap: 10px;\n    padding: 10px 15px; border-bottom: 1px solid #e2e8f0;\n    cursor: pointer; background: white;\n}\n.contact-row:hover { background: #f1f5f9; }\n.contact-row input { cursor: pointer; }\n\n.c-name { font-size: 14px; font-weight: 500; color: #1e293b; }\n.c-job { font-size: 12px; color: #64748b; }\n\n/* ACTIONS */\n.form-actions {\n    display: flex; justify-content: flex-end; gap: 10px;\n    padding-top: 20px; border-top: 1px solid #e2e8f0;\n}\n.btn-primary, .btn-secondary {\n    padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: 500; font-size: 14px;\n}\n.btn-primary { background: #2563eb; color: white; border: none; }\n.btn-secondary { background: white; border: 1px solid #cbd5e1; color: #334155; }\n.btn-primary:disabled { background: #93c5fd; cursor: not-allowed; }</style>",
+_dynamicNodes : [{"type":"attr","position":[1,1,1,1]},{"type":"attr","position":[1,3]},{"type":"if","position":[1,3],"cases":{"true":{"dynamicNodes":[]},"false":{"dynamicNodes":[{"type":"attr","position":[1,1,1,5,3,3,1]},{"type":"for","position":[1,1,1,5,3,3,1],"dynamicNodes":[{"type":"attr","position":[1]},{"type":"text","position":[1,0]}],"actualTemplate":"<template is=\"for\" items=\"{{orderTypes}}\" item=\"type\"> <option value=\"{{type}}\">{{type}}</option> </template>"},{"type":"attr","position":[1,1,3,3,1,3]},{"type":"attr","position":[1,1,3,3,1,3,3]},{"type":"for","position":[1,1,3,3,1,3,3],"dynamicNodes":[{"type":"attr","position":[1]},{"type":"text","position":[1,0]}],"actualTemplate":"<template is=\"for\" items=\"{{companies}}\" item=\"comp\"> <option value=\"{{comp.id}}\">{{comp.name}}</option> </template>"},{"type":"attr","position":[1,1,3,3,3,3,1]},{"type":"for","position":[1,1,3,3,3,3,1],"dynamicNodes":[{"type":"attr","position":[1]},{"type":"text","position":[1,0]},{"type":"text","position":[1,2]}],"actualTemplate":"<template is=\"for\" items=\"{{users}}\" item=\"u\"> <option value=\"{{u.id}}\">{{u.fullName}} ({{u.roleName}})</option> </template>"},{"type":"attr","position":[1,1,3,5,3,1]},{"type":"if","position":[1,1,3,5,3,1],"cases":{"true":{"dynamicNodes":[]},"false":{"dynamicNodes":[{"type":"attr","position":[1]},{"type":"if","position":[1],"cases":{"true":{"dynamicNodes":[]},"false":{"dynamicNodes":[{"type":"attr","position":[1]},{"type":"for","position":[1],"dynamicNodes":[{"type":"attr","position":[1,1]},{"type":"text","position":[1,3,1,0]},{"type":"text","position":[1,3,3,0]}]}]}},"default":{}}]}},"default":{}},{"type":"attr","position":[1,1,5,1]},{"type":"attr","position":[1,1,5,3]},{"type":"attr","position":[1,1,5,3,1]},{"type":"if","position":[1,1,5,3,1],"cases":{"true":{"dynamicNodes":[]},"false":{"dynamicNodes":[]}},"default":{}}]}},"default":{}}],
 _observedAttributes :["companies","users","orderTypes","allContacts","filteredContacts","selectedContactIds","title","amount","orderType","selectedCompany","assignedUserId","isLoading","isSaving"],
 
+	// ... (keep data and didConnect the same) ...
 	data: function() {
 		return {
 			companies: Lyte.attr("array", { default: [] }),
 			users: Lyte.attr("array", { default: [] }),
 			orderTypes: Lyte.attr("array", { default: [] }),
-
 			allContacts: Lyte.attr("array", { default: [] }),
 			filteredContacts: Lyte.attr("array", { default: [] }),
 			selectedContactIds: Lyte.attr("array", { default: [] }),
@@ -1995,24 +1984,20 @@ _observedAttributes :["companies","users","orderTypes","allContacts","filteredCo
 
 	loadInitialData: function() {
 		this.setData('isLoading', true);
-
 		Promise.all([
 			this.crmAddDeal(),
 			this.crmGetContacts({})
 		]).then((responses) => {
 			const [metaRes, contactRes] = responses;
-
 			if (metaRes.success && metaRes.data) {
 				this.setData('companies', metaRes.data.companies || []);
 				this.setData('users', metaRes.data.users || []);
 				this.setData('orderTypes', metaRes.data.orderTypes || []);
-
 				const currentUser = this.getAuthUser();
 				if (currentUser && currentUser.userId) {
 					this.setData('assignedUserId', currentUser.userId);
 				}
 			}
-
 			let contacts = [];
 			if (contactRes && contactRes.data && Array.isArray(contactRes.data.data)) {
 				contacts = contactRes.data.data;
@@ -2020,7 +2005,6 @@ _observedAttributes :["companies","users","orderTypes","allContacts","filteredCo
 				contacts = contactRes.data;
 			}
 			this.setData('allContacts', contacts);
-
 		}).catch(err => {
 			console.error(err);
 			alert("Error loading form data");
@@ -2029,14 +2013,13 @@ _observedAttributes :["companies","users","orderTypes","allContacts","filteredCo
 		});
 	},
 
-	// --- REMOVED OBSERVER (It was conflicting with the Action) ---
-
 	actions: {
-		onCompanySelect: function(element) {
-			// ... (Keep existing logic) ...
+		onCompanySelect: function(event) {
+			const element = event.target;
 			const compId = element.value;
+
 			this.setData('selectedCompany', compId);
-			this.setData('selectedContactIds', []);
+			this.setData('selectedContactIds', []); // Reset contacts
 
 			if (!compId) {
 				this.setData('filteredContacts', []);
@@ -2058,45 +2041,49 @@ _observedAttributes :["companies","users","orderTypes","allContacts","filteredCo
 			this.setData('selectedContactIds', selected);
 		},
 
-		createDeal: function(e) {
-			e.preventDefault();
+		createDeal: function() {
+			// 1. Get Elements
+			const titleInput = document.getElementById('inp_title');
+			const amountInput = document.getElementById('inp_amount');
+			const companySelect = document.getElementById('sel_company'); // FIX: Get Select Element
 
-			// FIX: Use FormData to extract values directly from the form event
-			// e.target refers to the <form> element
-			const formData = new FormData(e.target);
+			// 2. Read Values Directly
+			const rawTitle = titleInput ? titleInput.value : "";
+			const rawAmount = amountInput ? amountInput.value : "";
+			const rawCompId = companySelect ? companySelect.value : ""; // FIX: Read Value
 
-			let title = formData.get("title");   // Looks for name="title"
-			let amountStr = formData.get("amount"); // Looks for name="amount"
-			let amount = parseFloat(amountStr);
+			console.log("DOM Read - Title:", rawTitle, "Amount:", rawAmount, "Company:", rawCompId);
 
-			let compId = this.getData('selectedCompany');
-
-			// Validation
-			if (!title || title.trim() === "") {
+			// 3. Validation
+			if (!rawTitle || rawTitle.trim() === "") {
 				alert("Please enter a Deal Title");
 				return;
 			}
-			if (isNaN(amount) || amount <= 0) {
+
+			const amountVal = parseFloat(rawAmount);
+			if (isNaN(amountVal) || amountVal <= 0) {
 				alert("Please enter a valid Amount");
 				return;
 			}
-			if (!compId) {
+
+			// Check if Company ID exists
+			if (!rawCompId || rawCompId === "") {
 				alert("Please select a Company");
 				return;
 			}
 
 			this.setData('isSaving', true);
 
+			// 4. Payload
 			const payload = {
-				title: title.trim(),
-				amount: amount,
+				title: rawTitle.trim(),
+				amount: Number(amountVal),
 				orderType: this.getData('orderType'),
-				companyId: parseInt(compId),
-				assignedUserId: parseInt(this.getData('assignedUserId')),
+				companyId: Number(rawCompId),
+				assignedUserId: Number(this.getData('assignedUserId')),
 				contactIds: this.getData('selectedContactIds')
 			};
 
-			console.log("Submitting Payload:", payload);
 
 			this.crmSaveDeal(payload)
 				.then((res) => {
@@ -2119,7 +2106,7 @@ _observedAttributes :["companies","users","orderTypes","allContacts","filteredCo
 			window.location.hash = "#/deals";
 		}
 	}
-	}, { mixins: ["auth-mixin", "crm-api-mixin", "utils-mixin", "api-mixin"] });
+}, { mixins: ["auth-mixin", "crm-api-mixin", "utils-mixin", "api-mixin"] });
 Lyte.Component.register("activity-list", {
 _template:"<template tag-name=\"activity-list\"> <div class=\"page-container\"> <header class=\"page-header\"> <h1 class=\"title\">Activities</h1> <template is=\"if\" value=\"{{canCreate}}\"><template case=\"true\"> <button onclick=\"{{action('createActivity')}}\" class=\"add-btn\"> <span>+ New Activity</span> </button> </template></template> </header> <div class=\"filter-bar\"> <div class=\"status-tabs\"> <button class=\"status-tab {{expHandlers(expHandlers(currentStatusFilter,'==','all'),'?:','active','')}}\" onclick=\"{{action('filterStatus','all')}}\"> All <span class=\"count\">{{counts.all}}</span> </button> <button class=\"status-tab {{expHandlers(expHandlers(currentStatusFilter,'==','pending'),'?:','active','')}}\" onclick=\"{{action('filterStatus','pending')}}\"> Pending <span class=\"count\">{{counts.pending}}</span> </button> <button class=\"status-tab {{expHandlers(expHandlers(currentStatusFilter,'==','overdue'),'?:','active','')}}\" onclick=\"{{action('filterStatus','overdue')}}\"> Overdue <span class=\"count\">{{counts.overdue}}</span> </button> <button class=\"status-tab {{expHandlers(expHandlers(currentStatusFilter,'==','completed'),'?:','active','')}}\" onclick=\"{{action('filterStatus','completed')}}\"> Completed <span class=\"count\">{{counts.completed}}</span> </button> </div> <div class=\"type-filters\"> <template is=\"for\" items=\"{{ACTIVITY_TYPES}}\" item=\"type\" index=\"k\"> <button class=\"type-btn {{expHandlers(expHandlers(currentTypeFilter,'==',type),'?:','active','')}}\" onclick=\"{{action('filterType',type)}}\" title=\"{{type}}\"> <span class=\"type-icon {{type}}\"></span> </button> </template> </div> </div> <template is=\"if\" value=\"{{isLoading}}\"><template case=\"true\"> <div class=\"loading-state\"> <div class=\"spinner\"></div> <p>Loading activities...</p> </div> </template><template case=\"false\"> <div class=\"activities-card\"> <template is=\"if\" value=\"{{expHandlers(groupedActivities.length,'===',0)}}\"><template case=\"true\"> <div class=\"empty-state\">No activities found matching your filters.</div> </template><template case=\"false\"> <template is=\"for\" items=\"{{groupedActivities}}\" item=\"group\" index=\"i\"> <div class=\"group-section\"> <div class=\"group-header\">{{group.title}} ({{group.count}})</div> <template is=\"for\" items=\"{{group.items}}\" item=\"act\" index=\"j\"> <div class=\"activity-row {{expHandlers(act.isOverdue,'?:','overdue','')}}\" onclick=\"{{action('viewActivity',act.id)}}\"> <div class=\"row-icon-box {{act.type}}\"> <svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><circle cx=\"12\" cy=\"12\" r=\"10\"></circle><polyline points=\"12 6 12 12 16 14\"></polyline></svg> </div> <div class=\"row-content\"> <div class=\"row-header\"> <span class=\"type-label\">{{act.type}}</span> <span class=\"status-badge\" style=\"color: {{act.statusColor}}\">{{act.statusCode}}</span> </div> <div class=\"row-desc\">{{act.description}}</div> <div class=\"row-meta\"> <span class=\"{{expHandlers(act.isOverdue,'?:','text-danger','')}}\">{{act.formattedDate}}</span> <template is=\"if\" value=\"{{act.dealTitle}}\"><template case=\"true\"> <span class=\"dot\">•</span> <span class=\"deal-link\">{{act.dealTitle}}</span> </template></template> </div> </div> <div class=\"row-action\">›</div> </div> </template> </div> </template> </template></template> </div> </template></template> </div> </template>\n<style>/* CONTAINER */\n.page-container {\n    padding: 20px;\n    background-color: #f4f7f6;\n    height: 100vh;\n    display: flex;\n    flex-direction: column;\n    overflow: hidden; /* FIX: Stop the whole page from scrolling */\n}\n\n/* HEADER */\n.page-header {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    margin-bottom: 20px;\n    flex-shrink: 0; /* Prevent header from squishing */\n}\n.title { font-size: 24px; color: #1e293b; margin: 0; }\n.add-btn { background: #2563eb; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; }\n\n/* FILTERS */\n.filter-bar {\n    display: flex;\n    flex-wrap: wrap;\n    gap: 15px;\n    margin-bottom: 20px;\n    flex-shrink: 0; /* Prevent filters from squishing */\n}\n/* ... (Keep existing status-tabs and type-filters styles) ... */\n.status-tabs { display: flex; gap: 10px; }\n.status-tab {\n    padding: 6px 14px; border-radius: 20px; border: 1px solid #e2e8f0;\n    background: white; color: #64748b; font-size: 13px; font-weight: 500; cursor: pointer;\n}\n.status-tab.active { background: #2563eb; color: white; border-color: #2563eb; }\n.count { background: rgba(0,0,0,0.1); padding: 2px 6px; border-radius: 10px; font-size: 11px; margin-left: 5px; }\n\n.type-filters { margin-left: auto; display: flex; gap: 5px; }\n.type-btn {\n    width: 32px; height: 32px; border: 1px solid #e2e8f0; background: white;\n    border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center;\n}\n.type-btn.active { background: #cbd5e1; border-color: #94a3b8; }\n.type-icon { width: 12px; height: 12px; background: #64748b; border-radius: 50%; }\n\n/* LIST CARD - SCROLL FIX IS HERE */\n.activities-card {\n    background: white;\n    border-radius: 8px;\n    box-shadow: 0 1px 3px rgba(0,0,0,0.1);\n\n    /* FIX: Make this element fill space and scroll */\n    flex-grow: 1;\n    overflow-y: auto;\n    min-height: 0; /* Crucial for flex child scrolling */\n\n    display: flex;\n    flex-direction: column;\n}\n\n/* ... (Keep existing row styles) ... */\n.group-header {\n    background: #f8fafc; padding: 10px 20px; border-bottom: 1px solid #f1f5f9;\n    font-size: 12px; font-weight: bold; color: #94a3b8; text-transform: uppercase;\n    position: sticky; top: 0; z-index: 1; /* Bonus: Sticky Group Headers */\n}\n\n.activity-row {\n    display: flex; gap: 15px; padding: 15px 20px;\n    border-bottom: 1px solid #f1f5f9; cursor: pointer;\n}\n.activity-row:hover { background: #fdfdfd; }\n.activity-row.overdue { border-left: 3px solid #ef4444; }\n\n.row-icon-box {\n    width: 40px; height: 40px; border-radius: 8px;\n    display: flex; align-items: center; justify-content: center;\n    color: white; flex-shrink: 0;\n}\n.row-icon-box.TASK { background: #3b82f6; }\n.row-icon-box.CALL { background: #10b981; }\n.row-icon-box.MEETING { background: #8b5cf6; }\n.row-icon-box.EMAIL { background: #f59e0b; }\n.row-icon-box.LETTER { background: #64748b; }\n.row-icon-box.SOCIAL_MEDIA { background: #ec4899; }\n\n.row-content { flex-grow: 1; }\n.row-header { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }\n.type-label { font-size: 11px; font-weight: bold; color: #64748b; }\n.status-badge { font-size: 11px; font-weight: bold; background: #f1f5f9; padding: 2px 6px; border-radius: 4px; }\n\n.row-desc { font-size: 14px; font-weight: 500; color: #1e293b; margin-bottom: 4px; }\n.row-meta { font-size: 12px; color: #94a3b8; }\n.text-danger { color: #ef4444; font-weight: 500; }\n.row-action { color: #cbd5e1; font-weight: bold; }\n\n.loading-state, .empty-state { padding: 40px; text-align: center; color: #94a3b8; }\n.spinner { width: 30px; height: 30px; border: 3px solid #cbd5e1; border-top-color: #2563eb; border-radius: 50%; margin: 0 auto 10px; animation: spin 1s infinite linear; }\n@keyframes spin { to { transform: rotate(360deg); } }</style>",
 _dynamicNodes : [{"type":"attr","position":[1,1,3]},{"type":"if","position":[1,1,3],"cases":{"true":{"dynamicNodes":[{"type":"attr","position":[1]}]}},"default":{}},{"type":"attr","position":[1,3,1,1]},{"type":"text","position":[1,3,1,1,1,0]},{"type":"attr","position":[1,3,1,3]},{"type":"text","position":[1,3,1,3,1,0]},{"type":"attr","position":[1,3,1,5]},{"type":"text","position":[1,3,1,5,1,0]},{"type":"attr","position":[1,3,1,7]},{"type":"text","position":[1,3,1,7,1,0]},{"type":"attr","position":[1,3,3,1]},{"type":"for","position":[1,3,3,1],"dynamicNodes":[{"type":"attr","position":[1]},{"type":"attr","position":[1,1]}]},{"type":"attr","position":[1,5]},{"type":"if","position":[1,5],"cases":{"true":{"dynamicNodes":[]},"false":{"dynamicNodes":[{"type":"attr","position":[1,1]},{"type":"if","position":[1,1],"cases":{"true":{"dynamicNodes":[]},"false":{"dynamicNodes":[{"type":"attr","position":[1]},{"type":"for","position":[1],"dynamicNodes":[{"type":"text","position":[1,1,0]},{"type":"text","position":[1,1,2]},{"type":"attr","position":[1,3]},{"type":"for","position":[1,3],"dynamicNodes":[{"type":"attr","position":[1]},{"type":"attr","position":[1,1]},{"type":"text","position":[1,3,1,1,0]},{"type":"attr","position":[1,3,1,3],"attr":{"style":{"name":"style","helperInfo":{"name":"concat","args":["'color: '","act.statusColor"]}}}},{"type":"text","position":[1,3,1,3,0]},{"type":"text","position":[1,3,3,0]},{"type":"attr","position":[1,3,5,1]},{"type":"text","position":[1,3,5,1,0]},{"type":"attr","position":[1,3,5,3]},{"type":"if","position":[1,3,5,3],"cases":{"true":{"dynamicNodes":[{"type":"text","position":[3,0]}]}},"default":{}}]}]}]}},"default":{}}]}},"default":{}}],
@@ -2938,7 +2925,7 @@ Lyte.Router.registerRoute("crm-app.role-list", {
     }
 });
 Lyte.Component.register("crm-dashboard", {
-_template:"<template tag-name=\"crm-dashboard\"> <div class=\"page-container\"> <header class=\"page-header\"> <div class=\"header-left\"> <h1 class=\"title\">Dashboard</h1> </div> </header> <template is=\"if\" value=\"{{isLoading}}\"><template case=\"true\"> <div class=\"loading-state\"> <div class=\"spinner\"></div> <p>Loading dashboard...</p> </div> </template><template case=\"false\"> <div class=\"dashboard-content\"> <div class=\"welcome-banner\"> <h1>Welcome back, {{currentUser.fullName}}!</h1> <p>Here's what's happening with your CRM today.</p> </div> <div class=\"quick-actions\"> <template is=\"if\" value=\"{{perms.DEAL_CREATE}}\"><template case=\"true\"> <button onclick=\"{{action('navigateTo','#/deals/create')}}\" class=\"quick-btn\"> <div class=\"icon-box blue\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M12 2L2 7l10 5 10-5-10-5z\"></path><path d=\"M2 17l10 5 10-5\"></path></svg></div> New Deal </button> </template></template> <template is=\"if\" value=\"{{perms.ACTIVITY_CREATE}}\"><template case=\"true\"> <button onclick=\"{{action('navigateTo','#/activities/create')}}\" class=\"quick-btn\"> <div class=\"icon-box yellow\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"18\" rx=\"2\" ry=\"2\"></rect><line x1=\"16\" y1=\"2\" x2=\"16\" y2=\"6\"></line><line x1=\"8\" y1=\"2\" x2=\"8\" y2=\"6\"></line><line x1=\"3\" y1=\"10\" x2=\"21\" y2=\"10\"></line></svg></div> New Activity </button> </template></template> <template is=\"if\" value=\"{{perms.COMPANY_CREATE}}\"><template case=\"true\"> <button onclick=\"{{action('navigateTo','#/companies/create')}}\" class=\"quick-btn\"> <div class=\"icon-box green\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M3 21h18\"></path><path d=\"M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16\"></path></svg></div> New Company </button> </template></template> <template is=\"if\" value=\"{{perms.CONTACT_CREATE}}\"><template case=\"true\"> <button onclick=\"{{action('navigateTo','#/contacts/create')}}\" class=\"quick-btn\"> <div class=\"icon-box purple\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2\"></path><circle cx=\"9\" cy=\"7\" r=\"4\"></circle><path d=\"M23 21v-2a4 4 0 0 0-3-3.87\"></path><path d=\"M16 3.13a4 4 0 0 1 0 7.75\"></path></svg></div> New Contact </button> </template></template> </div> <div class=\"stats-grid\"> <template is=\"for\" items=\"{{summaryStats}}\" item=\"stat\"> <div class=\"stat-card\" onclick=\"{{action('navigateTo',stat.link)}}\"> <div class=\"stat-header\"> <div class=\"stat-icon {{stat.icon}}\"> <svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><circle cx=\"12\" cy=\"12\" r=\"10\"></circle><line x1=\"12\" y1=\"16\" x2=\"12\" y2=\"12\"></line><line x1=\"12\" y1=\"8\" x2=\"12.01\" y2=\"8\"></line></svg> </div> </div> <div class=\"stat-value\">{{stat.value}}</div> <div class=\"stat-label\">{{stat.label}}</div> </div> </template> </div> <template is=\"if\" value=\"{{perms.VIEW_DEALS}}\"><template case=\"true\"> <div class=\"widget-card\"> <div class=\"widget-header\"> <h3 class=\"widget-title\">Deal Pipeline</h3> <button onclick=\"{{action('navigateTo','#/deals')}}\" class=\"btn-text\">View All</button> </div> <div class=\"widget-body\"> <div class=\"pipeline-grid\"> <template is=\"for\" items=\"{{pipelineStages}}\" item=\"stage\"> <div class=\"pipeline-stage {{stage.cssClass}}\"> <div class=\"stage-val\">{{stage.count}}</div> <div class=\"stage-lbl\">{{stage.label}}</div> </div> </template> </div> <div class=\"pipeline-footer\"> <span class=\"label\">Total Pipeline Value</span> <span class=\"value\">{{totalPipelineValue}}</span> </div> </div> </div> </template></template> </div> </template></template> </div> </template>\n<style>/* CONTAINER */\n.page-container {\n    padding: 24px 32px;\n    background-color: #f8fafc;\n    height: 100vh;\n    display: flex;\n    flex-direction: column;\n    overflow: hidden; /* Stop main page scroll */\n    box-sizing: border-box;\n}\n\n/* HEADER */\n.page-header {\n    margin-bottom: 20px;\n    flex-shrink: 0; /* Keep header fixed size */\n}\n.title { font-size: 24px; font-weight: 700; color: #0f172a; margin: 0; }\n\n/* SCROLLABLE WRAPPER (This fixes the scroll) */\n.dashboard-content {\n    flex-grow: 1;         /* Take up remaining space */\n    overflow-y: auto;     /* Enable Vertical Scroll */\n    min-height: 0;        /* Flexbox fix for scrolling */\n    padding-bottom: 40px; /* Space at bottom */\n\n    /* Hide scrollbar for cleaner look (optional) */\n    scrollbar-width: thin;\n}\n\n/* BANNER */\n.welcome-banner {\n    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);\n    border-radius: 12px; padding: 24px; color: white;\n    margin-bottom: 24px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);\n}\n.welcome-banner h1 { margin: 0 0 8px 0; font-size: 24px; font-weight: 700; }\n.welcome-banner p { margin: 0; opacity: 0.9; font-size: 14px; }\n\n/* QUICK ACTIONS */\n.quick-actions { display: flex; gap: 15px; margin-bottom: 30px; flex-wrap: wrap; }\n.quick-btn {\n    background: white; border: 1px solid #e2e8f0; border-radius: 8px;\n    padding: 12px 20px; display: flex; align-items: center; gap: 10px;\n    font-size: 14px; font-weight: 600; color: #334155; cursor: pointer;\n    transition: all 0.2s; box-shadow: 0 1px 2px rgba(0,0,0,0.05);\n}\n.quick-btn:hover { border-color: #cbd5e1; transform: translateY(-1px); }\n\n.icon-box { width: 28px; height: 28px; border-radius: 6px; display: flex; align-items: center; justify-content: center; }\n.icon-box.blue { background: #dbeafe; color: #2563eb; }\n.icon-box.yellow { background: #fef3c7; color: #d97706; }\n.icon-box.green { background: #dcfce7; color: #166534; }\n.icon-box.purple { background: #f3e8ff; color: #9333ea; }\n\n/* STATS GRID */\n.stats-grid {\n    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));\n    gap: 20px; margin-bottom: 30px;\n}\n.stat-card {\n    background: white; border: 1px solid #e2e8f0; border-radius: 12px;\n    padding: 20px; cursor: pointer; transition: all 0.2s;\n}\n.stat-card:hover { box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); border-color: #cbd5e1; }\n\n.stat-header { margin-bottom: 15px; }\n.stat-icon {\n    width: 40px; height: 40px; border-radius: 10px;\n    display: flex; align-items: center; justify-content: center;\n}\n.stat-icon.deals { background: #dbeafe; color: #2563eb; }\n.stat-icon.activities { background: #fef3c7; color: #d97706; }\n.stat-icon.companies { background: #dcfce7; color: #166534; }\n.stat-icon.contacts { background: #f3e8ff; color: #9333ea; }\n.stat-icon.users { background: #fce7f3; color: #db2777; }\n\n.stat-value { font-size: 28px; font-weight: 700; color: #0f172a; margin-bottom: 4px; }\n.stat-label { font-size: 13px; color: #64748b; }\n\n/* PIPELINE WIDGET */\n.widget-card {\n    background: white; border: 1px solid #e2e8f0; border-radius: 12px;\n    overflow: hidden; margin-bottom: 30px;\n}\n.widget-header {\n    padding: 16px 24px; border-bottom: 1px solid #f1f5f9;\n    display: flex; justify-content: space-between; align-items: center;\n}\n.widget-title { font-size: 16px; font-weight: 600; color: #0f172a; margin: 0; }\n.btn-text { background: none; border: none; color: #2563eb; font-size: 13px; font-weight: 500; cursor: pointer; }\n\n.widget-body { padding: 24px; }\n.pipeline-grid {\n    display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));\n    gap: 12px;\n}\n.pipeline-stage {\n    background: #f8fafc; padding: 16px; border-radius: 8px; text-align: center;\n    border-top: 4px solid #cbd5e1; /* Ensured border thickness */\n}\n.pipeline-stage.open { border-color: #3b82f6; }\n.pipeline-stage.in-progress { border-color: #f59e0b; }\n.pipeline-stage.won { border-color: #10b981; }\n.pipeline-stage.lost { border-color: #ef4444; }\n\n.stage-val { font-size: 20px; font-weight: 700; color: #0f172a; }\n.stage-lbl { font-size: 11px; text-transform: uppercase; color: #64748b; margin-top: 4px; }\n\n.pipeline-footer {\n    margin-top: 20px; padding-top: 20px; border-top: 1px solid #f1f5f9;\n    text-align: center;\n}\n.pipeline-footer .label { font-size: 13px; color: #64748b; display: block; margin-bottom: 4px; }\n.pipeline-footer .value { font-size: 24px; font-weight: 700; color: #10b981; }\n\n.loading-state { text-align: center; padding: 60px; color: #94a3b8; }\n.spinner { width: 30px; height: 30px; border: 3px solid #e2e8f0; border-top-color: #2563eb; border-radius: 50%; margin: 0 auto 15px; animation: spin 1s infinite linear; }\n@keyframes spin { to { transform: rotate(360deg); } }</style>",
+_template:"<template tag-name=\"crm-dashboard\"> <div class=\"page-container\"> <header class=\"page-header\"> <div class=\"header-left\"> <h1 class=\"title\">Dashboard</h1> </div> </header> <template is=\"if\" value=\"{{isLoading}}\"><template case=\"true\"> <div class=\"loading-state\"> <div class=\"spinner\"></div> <p>Loading dashboard...</p> </div> </template><template case=\"false\"> <div class=\"dashboard-content\"> <div class=\"welcome-banner\"> <h1>Welcome back, {{currentUser.fullName}}!</h1> <p>Here's what's happening with your CRM today.</p> </div> <div class=\"quick-actions\"> <template is=\"if\" value=\"{{perms.DEAL_CREATE}}\"><template case=\"true\"> <button onclick=\"{{action('navigateTo','#/deals/create')}}\" class=\"quick-btn\"> <div class=\"icon-box blue\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M12 2L2 7l10 5 10-5-10-5z\"></path><path d=\"M2 17l10 5 10-5\"></path></svg></div> New Deal </button> </template></template> <template is=\"if\" value=\"{{perms.ACTIVITY_CREATE}}\"><template case=\"true\"> <button onclick=\"{{action('navigateTo','#/activities/create')}}\" class=\"quick-btn\"> <div class=\"icon-box yellow\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"18\" rx=\"2\" ry=\"2\"></rect><line x1=\"16\" y1=\"2\" x2=\"16\" y2=\"6\"></line><line x1=\"8\" y1=\"2\" x2=\"8\" y2=\"6\"></line><line x1=\"3\" y1=\"10\" x2=\"21\" y2=\"10\"></line></svg></div> New Activity </button> </template></template> <template is=\"if\" value=\"{{perms.COMPANY_CREATE}}\"><template case=\"true\"> <button onclick=\"{{action('navigateTo','#/companies/create')}}\" class=\"quick-btn\"> <div class=\"icon-box green\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M3 21h18\"></path><path d=\"M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16\"></path></svg></div> New Company </button> </template></template> <template is=\"if\" value=\"{{perms.CONTACT_CREATE}}\"><template case=\"true\"> <button onclick=\"{{action('navigateTo','#/contacts/create')}}\" class=\"quick-btn\"> <div class=\"icon-box purple\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2\"></path><circle cx=\"9\" cy=\"7\" r=\"4\"></circle><path d=\"M23 21v-2a4 4 0 0 0-3-3.87\"></path><path d=\"M16 3.13a4 4 0 0 1 0 7.75\"></path></svg></div> New Contact </button> </template></template> </div> <div class=\"stats-grid\"> <template is=\"for\" items=\"{{summaryStats}}\" item=\"stat\"> <div class=\"stat-card\" onclick=\"{{action('navigateTo',stat.link)}}\"> <div class=\"stat-header\"> <div class=\"stat-icon {{stat.icon}}\"> <svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><circle cx=\"12\" cy=\"12\" r=\"10\"></circle><line x1=\"12\" y1=\"16\" x2=\"12\" y2=\"12\"></line><line x1=\"12\" y1=\"8\" x2=\"12.01\" y2=\"8\"></line></svg> </div> </div> <div class=\"stat-value\">{{stat.value}}</div> <div class=\"stat-label\">{{stat.label}}</div> </div> </template> </div> <template is=\"if\" value=\"{{perms.VIEW_DEALS}}\"><template case=\"true\"> <div class=\"widget-card\"> <div class=\"widget-header\"> <h3 class=\"widget-title\">Deal Pipeline</h3> <button onclick=\"{{action('navigateTo','#/deals')}}\" class=\"btn-text\">View All</button> </div> <div class=\"widget-body\"> <div class=\"pipeline-grid\"> <template is=\"for\" items=\"{{pipelineStages}}\" item=\"stage\"> <div class=\"pipeline-stage {{stage.cssClass}}\"> <div class=\"stage-val\">{{stage.count}}</div> <div class=\"stage-lbl\">{{stage.label}}</div> </div> </template> </div> <div class=\"pipeline-footer\"> <span class=\"label\">Total Pipeline Value</span> <span class=\"value\">{{totalPipelineValue}}</span> </div> </div> </div> </template></template> </div> </template></template> </div> </template>\n<style>/* CONTAINER */\n.page-container {\n    padding: 24px 32px;\n    background-color: #f8fafc;\n    height: 100vh;\n    display: flex;\n    flex-direction: column;\n    overflow: hidden; /* Stop main page scroll */\n    box-sizing: border-box;\n}\n\n/* HEADER */\n.page-header {\n    margin-bottom: 20px;\n    flex-shrink: 0; /* Keep header fixed size */\n}\n.title { font-size: 24px; font-weight: 700; color: #0f172a; margin: 0; }\n\n/* SCROLLABLE WRAPPER (This fixes the scroll) */\n.dashboard-content {\n    flex-grow: 1;         /* Take up remaining space */\n    overflow-y: auto;     /* Enable Vertical Scroll */\n    min-height: 0;        /* Flexbox fix for scrolling */\n    padding-bottom: 40px; /* Space at bottom */\n\n    /* Hide scrollbar for cleaner look (optional) */\n    scrollbar-width: thin;\n}\n\n/* BANNER */\n.welcome-banner {\n    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);\n    border-radius: 12px; padding: 24px; color: white;\n    margin-bottom: 24px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);\n}\n.welcome-banner h1 { margin: 0 0 8px 0; font-size: 24px; font-weight: 700; }\n.welcome-banner p { margin: 0; opacity: 0.9; font-size: 14px; }\n\n/* QUICK ACTIONS */\n.quick-actions { display: flex; gap: 15px; margin-bottom: 30px; flex-wrap: wrap; }\n.quick-btn {\n    background: white; border: 1px solid #e2e8f0; border-radius: 8px;\n    padding: 12px 20px; display: flex; align-items: center; gap: 10px;\n    font-size: 14px; font-weight: 600; color: #334155; cursor: pointer;\n    transition: all 0.2s; box-shadow: 0 1px 2px rgba(0,0,0,0.05);\n}\n.quick-btn:hover { border-color: #cbd5e1; transform: translateY(-1px); }\n\n.icon-box { width: 28px; height: 28px; border-radius: 6px; display: flex; align-items: center; justify-content: center; }\n.icon-box.blue { background: #dbeafe; color: #2563eb; }\n.icon-box.yellow { background: #fef3c7; color: #d97706; }\n.icon-box.green { background: #dcfce7; color: #166534; }\n.icon-box.purple { background: #f3e8ff; color: #9333ea; }\n\n/* STATS GRID */\n/* STATS GRID */\n.stats-grid {\n    display: grid;\n    /* CHANGE: Force 5 equal columns. */\n    grid-template-columns: repeat(5, 1fr);\n    gap: 20px;\n    margin-bottom: 30px;\n\n    /* OPTIONAL: Ensure it doesn't break on very small screens */\n    min-width: 800px;\n}\n.stat-card {\n    background: white; border: 1px solid #e2e8f0; border-radius: 12px;\n    padding: 20px; cursor: pointer; transition: all 0.2s;\n}\n.stat-card:hover { box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); border-color: #cbd5e1; }\n\n.stat-header { margin-bottom: 15px; }\n.stat-icon {\n    width: 40px; height: 40px; border-radius: 10px;\n    display: flex; align-items: center; justify-content: center;\n}\n.stat-icon.deals { background: #dbeafe; color: #2563eb; }\n.stat-icon.activities { background: #fef3c7; color: #d97706; }\n.stat-icon.companies { background: #dcfce7; color: #166534; }\n.stat-icon.contacts { background: #f3e8ff; color: #9333ea; }\n.stat-icon.users { background: #fce7f3; color: #db2777; }\n\n.stat-value { font-size: 28px; font-weight: 700; color: #0f172a; margin-bottom: 4px; }\n.stat-label { font-size: 13px; color: #64748b; }\n\n/* PIPELINE WIDGET */\n.widget-card {\n    background: white; border: 1px solid #e2e8f0; border-radius: 12px;\n    overflow: hidden; margin-bottom: 30px;\n}\n.widget-header {\n    padding: 16px 24px; border-bottom: 1px solid #f1f5f9;\n    display: flex; justify-content: space-between; align-items: center;\n}\n.widget-title { font-size: 16px; font-weight: 600; color: #0f172a; margin: 0; }\n.btn-text { background: none; border: none; color: #2563eb; font-size: 13px; font-weight: 500; cursor: pointer; }\n\n.widget-body { padding: 24px; }\n.pipeline-grid {\n    display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));\n    gap: 12px;\n}\n.pipeline-stage {\n    background: #f8fafc; padding: 16px; border-radius: 8px; text-align: center;\n    border-top: 4px solid #cbd5e1; /* Ensured border thickness */\n}\n.pipeline-stage.open { border-color: #3b82f6; }\n.pipeline-stage.in-progress { border-color: #f59e0b; }\n.pipeline-stage.won { border-color: #10b981; }\n.pipeline-stage.lost { border-color: #ef4444; }\n\n.stage-val { font-size: 20px; font-weight: 700; color: #0f172a; }\n.stage-lbl { font-size: 11px; text-transform: uppercase; color: #64748b; margin-top: 4px; }\n\n.pipeline-footer {\n    margin-top: 20px; padding-top: 20px; border-top: 1px solid #f1f5f9;\n    text-align: center;\n}\n.pipeline-footer .label { font-size: 13px; color: #64748b; display: block; margin-bottom: 4px; }\n.pipeline-footer .value { font-size: 24px; font-weight: 700; color: #10b981; }\n\n.loading-state { text-align: center; padding: 60px; color: #94a3b8; }\n.spinner { width: 30px; height: 30px; border: 3px solid #e2e8f0; border-top-color: #2563eb; border-radius: 50%; margin: 0 auto 15px; animation: spin 1s infinite linear; }\n@keyframes spin { to { transform: rotate(360deg); } }</style>",
 _dynamicNodes : [{"type":"attr","position":[1,3]},{"type":"if","position":[1,3],"cases":{"true":{"dynamicNodes":[]},"false":{"dynamicNodes":[{"type":"text","position":[1,1,1,1]},{"type":"attr","position":[1,3,1]},{"type":"if","position":[1,3,1],"cases":{"true":{"dynamicNodes":[{"type":"attr","position":[1]}]}},"default":{}},{"type":"attr","position":[1,3,3]},{"type":"if","position":[1,3,3],"cases":{"true":{"dynamicNodes":[{"type":"attr","position":[1]}]}},"default":{}},{"type":"attr","position":[1,3,5]},{"type":"if","position":[1,3,5],"cases":{"true":{"dynamicNodes":[{"type":"attr","position":[1]}]}},"default":{}},{"type":"attr","position":[1,3,7]},{"type":"if","position":[1,3,7],"cases":{"true":{"dynamicNodes":[{"type":"attr","position":[1]}]}},"default":{}},{"type":"attr","position":[1,5,1]},{"type":"for","position":[1,5,1],"dynamicNodes":[{"type":"attr","position":[1]},{"type":"attr","position":[1,1,1]},{"type":"text","position":[1,3,0]},{"type":"text","position":[1,5,0]}]},{"type":"attr","position":[1,7]},{"type":"if","position":[1,7],"cases":{"true":{"dynamicNodes":[{"type":"attr","position":[1,1,3]},{"type":"attr","position":[1,3,1,1]},{"type":"for","position":[1,3,1,1],"dynamicNodes":[{"type":"attr","position":[1]},{"type":"text","position":[1,1,0]},{"type":"text","position":[1,3,0]}]},{"type":"text","position":[1,3,3,3,0]}]}},"default":{}}]}},"default":{}}],
 _observedAttributes :["currentUser","summaryStats","pipelineStages","perms","isLoading","totalPipelineValue"],
 

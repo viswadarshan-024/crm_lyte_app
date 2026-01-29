@@ -53,9 +53,16 @@
 .icon-box.purple { background: #f3e8ff; color: #9333ea; }
 
 /* STATS GRID */
+/* STATS GRID */
 .stats-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px; margin-bottom: 30px;
+    display: grid;
+    /* CHANGE: Force 5 equal columns. */
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+
+    /* OPTIONAL: Ensure it doesn't break on very small screens */
+    min-width: 800px;
 }
 .stat-card {
     background: white; border: 1px solid #e2e8f0; border-radius: 12px;
