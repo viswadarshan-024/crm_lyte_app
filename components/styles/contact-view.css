@@ -1,0 +1,142 @@
+/* CONTAINER & HEADER */
+.page-container {
+    padding: 20px;
+    background-color: #f4f7f6;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.view-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.header-left { display: flex; align-items: center; gap: 10px; }
+.header-title { font-size: 20px; color: #1e293b; margin: 0; font-weight: 600; }
+
+.btn-icon {
+    background: none; border: 1px solid #e2e8f0; border-radius: 6px;
+    padding: 6px; cursor: pointer; color: #64748b; background: white;
+    display: flex; align-items: center;
+}
+.btn-icon:hover { background: #f1f5f9; color: #0f172a; }
+
+/* MAIN CARD */
+.content-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+/* PROFILE HEADER */
+.contact-profile {
+    padding: 24px;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.profile-avatar {
+    width: 64px; height: 64px;
+    border-radius: 50%;
+    background-color: #3b82f6;
+    color: white;
+    font-size: 24px; font-weight: bold;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+}
+.profile-info { flex-grow: 1; }
+.profile-name { margin: 0 0 4px 0; font-size: 24px; color: #0f172a; }
+.profile-meta { color: #64748b; font-size: 14px; }
+.link-text { color: #2563eb; font-weight: 500; cursor: pointer; }
+
+/* ACTION BUTTONS */
+.profile-actions { display: flex; gap: 10px; }
+.btn-secondary {
+    padding: 8px 16px; border: 1px solid #cbd5e1; background: white;
+    border-radius: 6px; cursor: pointer; font-weight: 500; color: #334155;
+}
+.btn-danger-ghost {
+    padding: 8px 16px; border: none; background: transparent;
+    cursor: pointer; font-weight: 500; color: #ef4444;
+}
+.btn-secondary:hover { background: #f8fafc; }
+.btn-danger-ghost:hover { background: #fee2e2; }
+
+/* INFO GRID */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 24px;
+    border-bottom: 1px solid #f1f5f9;
+}
+.info-item label {
+    display: block; font-size: 11px; text-transform: uppercase;
+    color: #94a3b8; margin-bottom: 4px; letter-spacing: 0.5px;
+}
+.info-item .value { font-size: 14px; color: #0f172a; font-weight: 500; }
+
+/* TABS */
+.tabs-nav {
+    display: flex;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 0 24px;
+}
+.tab-item {
+    padding: 12px 20px;
+    cursor: pointer;
+    color: #64748b;
+    border-bottom: 2px solid transparent;
+    font-weight: 500;
+    font-size: 14px;
+}
+.tab-item:hover { color: #334155; }
+.tab-item.active {
+    color: #2563eb;
+    border-bottom-color: #2563eb;
+}
+
+/* TAB PANELS & LISTS */
+.tab-panel { padding: 0; }
+.empty-tab { padding: 40px; text-align: center; color: #94a3b8; font-size: 14px; }
+
+.list-row {
+    display: flex; align-items: center;
+    padding: 16px 24px;
+    border-bottom: 1px solid #f1f5f9;
+}
+.list-row:last-child { border-bottom: none; }
+
+.row-icon {
+    width: 36px; height: 36px; border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    margin-right: 15px;
+}
+.row-icon.blue { background: #e0f2fe; color: #0284c7; }
+.row-icon.gray { background: #f1f5f9; color: #64748b; }
+
+.row-content { flex-grow: 1; }
+.row-title { font-weight: 500; color: #0f172a; font-size: 14px; }
+.row-sub { color: #64748b; font-size: 12px; margin-top: 2px; }
+
+.row-badge {
+    font-size: 11px; padding: 2px 8px; border-radius: 10px;
+    background: #f1f5f9; color: #475569; font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* LOADING / ERROR */
+.loading-container, .error-container {
+    padding: 50px; text-align: center; color: #64748b;
+}
+.spinner {
+    width: 30px; height: 30px; border: 3px solid #cbd5e1;
+    border-top-color: #2563eb; border-radius: 50%;
+    margin: 0 auto 15px; animation: spin 1s infinite linear;
+}
+@keyframes spin { to { transform: rotate(360deg); } }

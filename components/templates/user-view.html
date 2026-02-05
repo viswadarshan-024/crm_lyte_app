@@ -1,0 +1,147 @@
+<template tag-name="user-view">
+    <div class="page-container">
+
+        <header class="page-header">
+            <div class="header-left">
+                <button onclick="{{action('goBack')}}" class="btn-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
+                <h1 class="header-title">User Details</h1>
+            </div>
+        </header>
+
+        <template lyte-if="{{isLoading}}">
+            <div class="loading-state">
+                <div class="spinner"></div>
+                <p>Loading user...</p>
+            </div>
+        </template>
+
+        <template lyte-else>
+            <div class="view-content">
+
+                <div class="user-header-card">
+                    <div class="user-avatar-lg" style="background-color: {{avatarColor}}">
+                        {{initials}}
+                    </div>
+
+                    <div class="user-main-info">
+                        <div class="name-row">
+                            <h2>{{user.fullName}}</h2>
+                            <template lyte-if="{{user.active}}">
+                                <span class="badge badge-success">Active</span>
+                            </template>
+                            <template lyte-else>
+                                <span class="badge badge-danger">Inactive</span>
+                            </template>
+                        </div>
+                        <div class="user-email">{{user.email}}</div>
+
+                        <div class="badges-row">
+                            <span class="badge-pill role">{{user.roleName}}</span>
+                            <span class="badge-pill profile">{{user.profileName}}</span>
+                        </div>
+                    </div>
+
+                    <div class="user-actions">
+                        <button onclick="{{action('editUser')}}" class="btn-primary-ghost">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                            Edit
+                        </button>
+                        <button onclick="{{action('deleteUser')}}" class="btn-danger-ghost">Delete</button>
+                    </div>
+                </div>
+
+                <div class="user-body">
+
+                    <h3 class="section-title">Account Information</h3>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <div class="label">Username</div>
+                            <div class="value">{{user.username}}</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="label">Email</div>
+                            <div class="value">{{user.email}}</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="label">Role</div>
+                            <div class="value">{{user.roleName}}</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="label">Profile</div>
+                            <div class="value">{{user.profileName}}</div>
+                        </div>
+                    </div>
+
+                    <h3 class="section-title mt-4">Reporting Structure</h3>
+                    <div class="info-grid two-col">
+                        <div class="info-item">
+                            <div class="label">Reports To</div>
+                            <div class="value">{{user.reportsTo}}</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="label">Team Size</div>
+                            <div class="value">{{user.teamSize}} direct reports</div>
+                        </div>
+                    </div>
+
+                    <div class="tabs-container">
+                        <div class="tabs-header">
+                            <div class="tab {{currentTab == 'deals' ? 'active' : ''}}"
+                                 onclick="{{action('switchTab', 'deals')}}">
+                                Assigned Deals ({{deals.length}})
+                            </div>
+                            <div class="tab {{currentTab == 'team' ? 'active' : ''}}"
+                                 onclick="{{action('switchTab', 'team')}}">
+                                Team Members ({{teamMembers.length}})
+                            </div>
+                        </div>
+
+                        <template lyte-if="{{currentTab == 'deals'}}">
+                            <div class="tab-pane">
+                                <template lyte-if="{{deals.length === 0}}">
+                                    <div class="empty-tab">No deals assigned.</div>
+                                </template>
+                                <template lyte-else>
+                                    <template is="for" items="{{deals}}" item="d">
+                                        <div class="list-item">
+                                            <div class="item-main">
+                                                <div class="item-title">{{d.title}}</div>
+                                                <div class="item-sub">{{d.formattedAmount}}</div>
+                                            </div>
+                                            <span class="badge {{d.statusClass}}">{{d.status}}</span>
+                                            <button onclick="{{action('viewDeal', d.id)}}" class="btn-sm ml-2">View</button>
+                                        </div>
+                                    </template>
+                                </template>
+                            </div>
+                        </template>
+
+                        <template lyte-if="{{currentTab == 'team'}}">
+                            <div class="tab-pane">
+                                <template lyte-if="{{teamMembers.length === 0}}">
+                                    <div class="empty-tab">No direct reports.</div>
+                                </template>
+                                <template lyte-else>
+                                    <template is="for" items="{{teamMembers}}" item="m">
+                                        <div class="list-item">
+                                            <div class="mini-avatar" style="background-color: {{m.avatarColor}}">
+                                                {{m.initials}}
+                                            </div>
+                                            <div class="item-main">
+                                                <div class="item-title">{{m.fullName}}</div>
+                                                <div class="item-sub">{{m.email}}</div>
+                                            </div>
+                                            <button onclick="{{action('viewUser', m.id)}}" class="btn-sm">View</button>
+                                        </div>
+                                    </template>
+                                </template>
+                            </div>
+                        </template>
+
+                    </div> </div>
+            </div>
+        </template>
+    </div>
+</template>

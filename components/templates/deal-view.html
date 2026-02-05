@@ -1,0 +1,142 @@
+<template tag-name="deal-view">
+    <div class="page-container">
+
+        <header class="view-header">
+            <div class="header-left">
+                <button onclick="{{action('goBack')}}" class="btn-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                </button>
+                <h1 class="header-title">Deal Details</h1>
+            </div>
+        </header>
+
+        <template lyte-if="{{isLoading}}">
+            <div class="loading-container">
+                <div class="spinner"></div>
+                <p>Loading deal...</p>
+            </div>
+        </template>
+
+        <template lyte-else>
+
+            <template lyte-if="{{errorMsg}}">
+                <div class="error-container">
+                    <p class="error-text">{{errorMsg}}</p>
+                    <button onclick="{{action('goBack')}}" class="btn-primary">Back to Board</button>
+                </div>
+            </template>
+
+            <template lyte-else>
+                <div class="content-card">
+
+                    <div class="deal-highlight">
+                        <div class="deal-header-top">
+                            <div class="deal-icon {{deal.cssClass}}">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                                    <path d="M2 17l10 5 10-5"></path>
+                                </svg>
+                            </div>
+                            <div class="deal-info">
+                                <h2>{{deal.title}}</h2>
+                                <div class="deal-amount">{{deal.amount}}</div>
+                            </div>
+
+                            <div class="deal-actions">
+                                <template lyte-if="{{canEdit}}">
+                                    <button onclick="{{action('editDeal')}}" class="btn-secondary">Edit</button>
+                                </template>
+                                <template lyte-if="{{canDelete}}">
+                                    <button onclick="{{action('deleteDeal')}}" class="btn-danger-ghost">Delete</button>
+                                </template>
+                            </div>
+                        </div>
+
+                        <!-- SAFE PIPELINE RENDERING -->
+                        <div class="status-pipeline">
+                            <template is="for" items="{{pipelineSteps}}" item="step" index="i">
+                                <template lyte-if="{{step.isClickable}}">
+                                    <div class="status-step {{step.cssClass}}"
+                                         onclick="{{action('updateStatus', step.id)}}"
+                                         style="cursor:pointer">
+                                        {{step.label}}
+                                    </div>
+                                </template>
+
+                                <template lyte-else>
+                                    <div class="status-step {{step.cssClass}}" style="cursor:default">
+                                        {{step.label}}
+                                    </div>
+                                </template>
+
+                            </template>
+                        </div>
+                    </div>
+
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <label>Company</label>
+                            <div class="value link-text">{{companyName}}</div>
+                        </div>
+                        <div class="info-item">
+                            <label>Amount</label>
+                            <div class="value highlight">{{deal.amount}}</div>
+                        </div>
+                        <div class="info-item">
+                            <label>Owner</label>
+                            <div class="value">{{deal.owner}}</div>
+                        </div>
+                        <div class="info-item">
+                            <label>Created</label>
+                            <div class="value">{{deal.date}}</div>
+                        </div>
+                    </div>
+
+                    <div class="section-container">
+                        <h3 class="section-title">Contacts ({{contacts.length}})</h3>
+
+                        <template lyte-if="{{contacts.length > 0}}">
+                            <div class="list-card">
+                                <template is="for" items="{{contacts}}" item="c" index=i>
+                                    <div class="list-row">
+                                        <div class="avatar-circle">{{c.initials}}</div>
+                                        <div class="row-content">
+                                            <div class="row-title">{{c.name}}</div>
+                                            <div class="row-sub">{{c.job}}</div>
+                                        </div>
+                                    </div>
+                                </template>
+                            </div>
+                        </template>
+                    </div>
+
+                    <div class="section-container">
+                        <h3 class="section-title">Activities ({{activities.length}})</h3>
+
+                        <template lyte-if="{{activities.length > 0}}">
+                            <div class="list-card">
+                                <template is="for" items="{{activities}}" item="a" index="i">
+                                    <div class="list-row">
+                                        <div class="row-content">
+                                            <div class="row-title">{{a.description}}</div>
+                                            <div class="row-sub">
+                                                {{a.date}} <span class="dot">•</span> <span class="badge">{{a.status}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </template>
+                            </div>
+                        </template>
+
+                        <template lyte-else>
+                            <p class="empty-text">No activities linked.</p>
+                        </template>
+                    </div>
+
+                </div>
+            </template>
+        </template>
+    </div>
+</template>

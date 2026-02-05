@@ -1,0 +1,155 @@
+/* CONTAINER */
+.page-container {
+    padding: 20px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #f4f7f6;
+    overflow: hidden; /* Prevent double scrollbars */
+}
+
+/* HEADER & CONTROLS */
+.page-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.title { margin: 0; color: #1e293b; font-size: 24px; }
+.add-btn { background: #2563eb; color: white; padding: 8px 16px; border-radius: 6px; border:none; cursor: pointer; }
+
+.controls-bar { display: flex; gap: 15px; margin-bottom: 20px; }
+.search-wrapper {
+    background: white; border: 1px solid #e2e8f0; border-radius: 6px;
+    padding: 8px 12px; display: flex; align-items: center; flex-grow: 1;
+}
+.search-input { border: none; outline: none; width: 100%; font-size: 14px; }
+.view-toggles { display: flex; gap: 5px; }
+.toggle-btn {
+    background: white; border: 1px solid #e2e8f0; border-radius: 6px;
+    padding: 6px 10px; cursor: pointer; color: #64748b;
+}
+.toggle-btn.active { background: #2563eb; color: white; border-color: #2563eb; }
+
+/* KANBAN BOARD */
+.kanban-container {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto; /* Horizontal Scroll */
+    padding-bottom: 15px;
+    flex-grow: 1;
+    height: 100%;
+}
+
+.kanban-column {
+    min-width: 280px;
+    max-width: 280px;
+    background: #f1f5f9;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.column-header {
+    padding: 12px 15px;
+    background: white;
+    border-radius: 8px 8px 0 0;
+    border-bottom: 1px solid #e2e8f0;
+    border-top: 3px solid transparent; /* Colored top border */
+    display: flex; justify-content: space-between; align-items: center;
+}
+.col-title { font-weight: 600; font-size: 14px; color: #334155; }
+.col-count { background: #f1f5f9; padding: 2px 8px; border-radius: 10px; font-size: 11px; }
+
+/* Column Colors */
+.kanban-column.new .column-header { border-top-color: #3b82f6; } /* Blue */
+.kanban-column.qualified .column-header { border-top-color: #0ea5e9; } /* Cyan */
+.kanban-column.proposal .column-header { border-top-color: #6366f1; } /* Indigo */
+.kanban-column.in-progress .column-header { border-top-color: #f59e0b; } /* Orange */
+.kanban-column.delivered .column-header { border-top-color: #8b5cf6; } /* Purple */
+.kanban-column.closed .column-header { border-top-color: #10b981; } /* Green */
+
+.column-body {
+    padding: 10px;
+    overflow-y: auto; /* Vertical Scroll per column */
+    flex-grow: 1;
+}
+
+/* KANBAN CARD */
+/* KANBAN COLUMN FIXES */
+.kanban-container {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    padding-bottom: 15px;
+    height: 100%;
+}
+
+.kanban-column {
+    min-width: 280px;
+    max-width: 280px;
+    background: #f1f5f9; /* Light Grey Background */
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border: 1px solid #e2e8f0; /* Ensure visibility */
+}
+
+.column-header {
+    padding: 12px;
+    background: white;
+    border-radius: 8px 8px 0 0;
+    border-bottom: 1px solid #e2e8f0;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+}
+
+.column-body {
+    padding: 10px;
+    overflow-y: auto;
+    flex-grow: 1;
+    min-height: 100px; /* Force height so you can see it */
+}
+
+.kanban-card {
+    background: white;
+    padding: 12px;
+    border-radius: 6px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    margin-bottom: 10px;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+.kanban-card:hover { border-color: #cbd5e1; }
+
+.card-title { font-weight: 600; font-size: 14px; margin-bottom: 4px; }
+.card-company { font-size: 12px; color: #64748b; margin-bottom: 8px; }
+.card-footer { display: flex; justify-content: space-between; font-size: 11px; color: #94a3b8; }
+.amount { color: #10b981; font-weight: 600; }
+/* LIST VIEW */
+.list-container {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    overflow: hidden;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+.deal-row {
+    display: flex; align-items: center; padding: 15px 20px;
+    border-bottom: 1px solid #f1f5f9; cursor: pointer;
+}
+.deal-row:hover { background: #f8fafc; }
+.deal-info { flex-grow: 1; }
+.row-title { font-weight: 600; color: #0f172a; }
+.row-company { font-size: 12px; color: #64748b; }
+.deal-status { width: 120px; }
+.deal-amount { width: 100px; font-weight: 600; color: #0f172a; text-align: right; margin-right: 20px; }
+.deal-arrow { color: #cbd5e1; font-weight: bold; }
+
+.badge { font-size: 11px; padding: 3px 8px; border-radius: 4px; background: #f1f5f9; color: #475569; font-weight: 600; }
+.badge.CLOSED { background: #dcfce7; color: #166534; }
+.badge.NEW { background: #dbeafe; color: #1e40af; }
+
+/* LOADING/EMPTY */
+.loading-state, .empty-state, .empty-col { text-align: center; color: #94a3b8; padding: 20px; font-size: 13px; }
+.spinner { width: 30px; height: 30px; border: 3px solid #cbd5e1; border-top-color: #2563eb; border-radius: 50%; animation: spin 1s infinite linear; margin: 0 auto 10px; }
+@keyframes spin { to { transform: rotate(360deg); } }

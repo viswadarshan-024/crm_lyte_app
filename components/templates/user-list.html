@@ -1,0 +1,105 @@
+<template tag-name="user-list">
+    <div class="page-container">
+
+        <header class="page-header">
+            <h1 class="title">Users</h1>
+            <template lyte-if="{{canManage}}">
+                <button onclick="{{action('createUser')}}" class="add-btn">
+                    <span>+ Add User</span>
+                </button>
+            </template>
+        </header>
+
+        <div class="controls-bar">
+            <div class="search-wrapper full-width">
+                <span class="search-icon">🔍</span>
+                <input type="text"
+                       lyte-model="searchTerm"
+                       oninput="{{action('onSearchInput')}}"
+                       placeholder="Search users..."
+                       class="search-input">
+            </div>
+        </div>
+
+        <template lyte-if="{{isLoading}}">
+            <div class="loading-state">
+                <div class="spinner"></div>
+                <p>Loading users...</p>
+            </div>
+        </template>
+
+        <template lyte-else>
+            <div class="users-list-container">
+
+                <template lyte-if="{{groupedUsers.length === 0}}">
+                    <div class="empty-state">No users found.</div>
+                </template>
+
+                <template lyte-else>
+                    <template is="for" items="{{groupedUsers}}" item="group" index="i">
+                        <div class="role-section">
+                            <div class="role-header">
+                                <div class="role-title">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                                    {{group.roleName}}
+                                </div>
+                                <span class="role-count">{{group.count}} user(s)</span>
+                            </div>
+
+                            <div class="role-users">
+                                <template is="for" items="{{group.users}}" item="u" index="j">
+                                    <div class="user-card {{u.active ? '' : 'user-inactive'}}">
+
+                                        <div class="user-avatar" style="background-color: {{u.avatarColor}}">
+                                            {{u.initials}}
+                                        </div>
+
+                                        <div class="user-info">
+                                            <div class="user-name-row">
+                                                <span class="u-name">{{u.fullName}}</span>
+                                                <template lyte-if="{{u.active}}">
+                                                    <span class="badge badge-success">Active</span>
+                                                </template>
+                                                <template lyte-else>
+                                                    <span class="badge badge-danger">Inactive</span>
+                                                </template>
+                                            </div>
+
+                                            <div class="user-meta">
+                                                <span class="meta-item">
+                                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"></circle><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"></path></svg>
+                                                    {{u.username}}
+                                                </span>
+                                                <span class="meta-item">
+                                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                                                    {{u.email}}
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        <template lyte-if="{{u.profileName}}">
+                                            <div class="user-badges">
+                                                <span class="badge badge-profile">{{u.profileName}}</span>
+                                            </div>
+                                        </template>
+
+                                        <div class="user-actions">
+                                            <button onclick="{{action('viewUser', u.id)}}" class="btn-icon-sm" title="View">
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                                            </button>
+                                            <button onclick="{{action('deleteUser', u.id, u.fullName)}}" class="btn-icon-sm text-danger" title="Delete">
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                                            </button>
+                                        </div>
+
+                                    </div>
+                                </template>
+                            </div>
+                        </div>
+                    </template>
+                </template>
+
+            </div>
+        </template>
+    </div>
+</template>

@@ -1,0 +1,84 @@
+<template tag-name="profile-edit">
+    <div class="page-container">
+
+        <header class="page-header">
+            <div class="header-left">
+                <button onclick="{{action('cancel')}}" class="btn-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
+                <h1 class="header-title">Edit Profile</h1>
+            </div>
+        </header>
+
+        <template lyte-if="{{isLoading}}">
+            <div class="loading-state">
+                <div class="spinner"></div>
+                <p>Loading profile...</p>
+            </div>
+        </template>
+
+        <template lyte-else>
+            <div class="form-container">
+                <div class="form-card">
+                    <form onsubmit="return false;">
+
+                        <div class="form-section">
+                            <h3 class="section-title">Profile Information</h3>
+
+                            <div class="form-group">
+                                <label>Profile Name <span class="required">*</span></label>
+                                <input type="text" id="inp_name" class="form-input">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Description</label>
+                                <textarea id="inp_desc" class="form-textarea" rows="3"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3 class="section-title">Permissions</h3>
+                            <p class="section-subtitle">Select the access levels for this profile.</p>
+
+                            <div class="permissions-list">
+                                <template is="for" items="{{permissionGroups}}" item="group">
+                                    <div class="permission-group" data-group-key="{{group.key}}">
+                                        <div class="group-header">
+                                            <div class="group-title">
+                                                <div class="group-icon {{group.class}}">
+                                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle></svg>
+                                                </div>
+                                                {{group.title}}
+                                            </div>
+                                            <button type="button" class="btn-text-sm" onclick="{{action('toggleGroup', group.key)}}">Select All</button>
+                                        </div>
+
+                                        <div class="group-items">
+                                            <template is="for" items="{{group.list}}" item="p">
+                                                <label class="perm-checkbox">
+                                                    <input type="checkbox"
+                                                           checked="{{p.isChecked}}"
+                                                           onchange="{{action('togglePermission', p.id, event)}}">
+                                                    <span>{{p.label}}</span>
+                                                </label>
+                                            </template>
+                                        </div>
+                                    </div>
+                                </template>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" onclick="{{action('cancel')}}" class="btn-secondary">Cancel</button>
+                            <button type="button" onclick="{{action('updateProfile')}}" class="btn-primary" disabled="{{isSaving}}">
+                                <template lyte-if="{{isSaving}}">Saving...</template>
+                                <template lyte-else>Save Changes</template>
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </template>
+    </div>
+</template>

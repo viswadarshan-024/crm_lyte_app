@@ -1,0 +1,85 @@
+<template tag-name="company-list">
+    <div class="page-container">
+
+        <header class="page-header">
+            <h1 class="title">Companies</h1>
+            <template lyte-if="{{canCreate}}">
+                <button onclick="{{action('createCompany')}}" class="add-btn">
+                    <span>+ Add Company</span>
+                </button>
+            </template>
+        </header>
+
+        <div class="controls-bar">
+            <div class="search-wrapper full-width">
+                <span class="search-icon">🔍</span>
+                <input type="text"
+                       lyte-model="searchTerm"
+                       oninput="{{action('onSearchInput')}}"
+                       placeholder="Search companies..."
+                       class="search-input">
+            </div>
+        </div>
+
+        <template lyte-if="{{isLoading}}">
+            <div class="loading-state">
+                <div class="spinner"></div>
+                <p>Loading companies...</p>
+            </div>
+        </template>
+
+        <template lyte-else>
+
+            <template lyte-if="{{companyList.length === 0}}">
+                <div class="empty-state">
+                    <div class="empty-icon">🏢</div>
+                    <h3>No companies found</h3>
+                    <p>Create your first company to get started</p>
+                </div>
+            </template>
+
+            <template lyte-else>
+                <div class="companies-grid">
+                    <template is="for" items="{{companyList}}" item="comp">
+                        <div class="company-card" onclick="{{action('viewCompany', comp.id)}}">
+
+                            <div class="company-avatar" style="background-color: {{comp.avatarColor}}">
+                                {{comp.initials}}
+                            </div>
+
+                            <div class="company-info">
+                                <div class="company-name">{{comp.name}}</div>
+                                <div class="company-meta">
+
+                                    <template lyte-if="{{comp.email}}">
+                                        <div class="meta-item">
+                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                                            <span>{{comp.email}}</span>
+                                        </div>
+                                    </template>
+
+                                    <template lyte-if="{{comp.phone}}">
+                                        <div class="meta-item">
+                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                                            <span>{{comp.phone}}</span>
+                                        </div>
+                                    </template>
+
+                                    <template lyte-if="{{comp.industry}}">
+                                        <div class="meta-item">
+                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18"></path><path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"></path></svg>
+                                            <span>{{comp.industry}}</span>
+                                        </div>
+                                    </template>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </template>
+                </div>
+            </template>
+
+        </template>
+    </div>
+</template>

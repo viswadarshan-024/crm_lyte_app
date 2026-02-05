@@ -7,7 +7,7 @@ _dynamicNodes : [{"type":"componentDynamic","position":[1,1]}],
 	beforeModel: function(transition) {
 		// 1. Security Check
 		if (!this.isAuthenticated()) {
-			Lyte.Router.transitionTo('login');
+			Lyte.Router.transitionTo('login-comp');
 			return;
 		}
 

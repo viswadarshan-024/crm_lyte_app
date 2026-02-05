@@ -1,0 +1,131 @@
+<template tag-name="role-list">
+    <div class="page-container">
+
+        <header class="page-header">
+            <div class="header-left">
+                <h1 class="title">Roles</h1>
+                <p class="subtitle">Manage organizational hierarchy and reporting lines.</p>
+            </div>
+            <template lyte-if="{{canManage}}">
+                <button onclick="{{action('openCreateModal')}}" class="btn-primary">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                    <span>Create Role</span>
+                </button>
+            </template>
+        </header>
+
+        <template lyte-if="{{isLoading}}">
+            <div class="loading-state">
+                <div class="spinner"></div>
+                <p>Loading structure...</p>
+            </div>
+        </template>
+
+        <template lyte-else>
+
+            <template lyte-if="{{roles.length === 0}}">
+                <div class="empty-state">
+                    <div class="empty-icon-bg">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    </div>
+                    <h3>No roles defined</h3>
+                    <p>Create your first role to establish the hierarchy.</p>
+                    <button onclick="{{action('openCreateModal')}}" class="btn-secondary">Create First Role</button>
+                </div>
+            </template>
+
+            <template lyte-else>
+                <div class="roles-grid">
+                    <template is="for" items="{{roles}}" item="role">
+                        <div class="role-card">
+
+                            <div class="card-top">
+                                <div class="role-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                                </div>
+                                <div class="badge-id">ID: {{role.id}}</div>
+                            </div>
+
+                            <div class="card-main">
+                                <h3 class="role-title">{{role.roleName}}</h3>
+
+                                <div class="hierarchy-info">
+                                    <template lyte-if="{{role.parentName}}">
+                                        <div class="report-line">
+                                            <span class="icon-arrow">↳</span>
+                                            <span class="label">Reports to:</span>
+                                            <span class="value">{{role.parentName}}</span>
+                                        </div>
+                                    </template>
+                                    <template lyte-else>
+                                        <div class="report-line top">
+                                            <span class="icon-crown">👑</span>
+                                            <span class="value">Top Level Role</span>
+                                        </div>
+                                    </template>
+                                </div>
+
+                                <div class="sub-count">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                                    {{role.subordinateCount}} direct reports
+                                </div>
+                            </div>
+
+                            <div class="card-footer">
+                                <button onclick="{{action('viewRole', role.id)}}" class="btn-text">View Details</button>
+                                <button onclick="{{action('deleteRole', role.id, role.roleName)}}" class="btn-icon-danger" title="Delete">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                                </button>
+                            </div>
+
+                        </div>
+                    </template>
+                </div>
+            </template>
+
+        </template>
+
+        <template lyte-if="{{showCreateModal}}">
+            <div class="modal-backdrop">
+                <div class="modal-window">
+                    <div class="modal-head">
+                        <h3>Create New Role</h3>
+                        <button onclick="{{action('closeCreateModal')}}" class="btn-close">&times;</button>
+                    </div>
+
+                    <form onsubmit="{{action('createRole', event)}}">
+                        <div class="modal-content">
+                            <div class="form-group">
+                                <label>Role Name <span class="required">*</span></label>
+                                <input type="text" lyte-model="newRoleName" class="clean-input" placeholder="e.g. Sales Manager" autofocus>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Reports To</label>
+                                <div class="select-wrapper">
+                                    <select lyte-model="newRoleParentId" class="clean-select">
+                                        <option value="">No Parent (Top Level)</option>
+                                        <template is="for" items="{{roles}}" item="r">
+                                            <option value="{{r.id}}">{{r.roleName}}</option>
+                                        </template>
+                                    </select>
+                                    <span class="select-arrow">▼</span>
+                                </div>
+                                <p class="input-hint">Defines who this role reports to in the hierarchy.</p>
+                            </div>
+                        </div>
+
+                        <div class="modal-foot">
+                            <button type="button" onclick="{{action('closeCreateModal')}}" class="btn-ghost">Cancel</button>
+                            <button type="submit" class="btn-primary" disabled="{{isCreating}}">
+                                <template lyte-if="{{isCreating}}">Creating...</template>
+                                <template lyte-else>Create Role</template>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </template>
+
+    </div>
+</template>

@@ -1,0 +1,278 @@
+Lyte.Mixin.register("crm-api-mixin", {
+
+    /* ================= DASHBOARD ================= */
+    crmGetDashboard: function (limit) {
+        limit = limit || 5;
+        return this.apiRequest('dashboard?recentLimit=' + limit, {
+            method: 'GET'
+        });
+    },
+
+    /* ================= AUTH ================= */
+    crmLogin: function (username, password) {
+        return this.apiRequest('auth/login', {
+            method: 'POST',
+            body: { username, password }
+        });
+    },
+
+    crmLogout: function () {
+        return this.apiRequest('auth/logout', {
+            method: 'POST'
+        });
+    },
+
+    /* ================= COMPANIES ================= */
+    crmGetCompanies: function (params) {
+        let qs = params ? '?' + new URLSearchParams(params).toString() : '';
+        return this.apiRequest('companies' + qs, { method: 'GET' });
+    },
+
+    crmGetCompany: function (id) {
+        return this.apiRequest('companies/' + id, { method: 'GET' });
+    },
+
+    crmAddCompany: function () {
+        // metadata / form schema
+        return this.apiRequest('companies', { method: 'GET' });
+    },
+
+    crmEditCompany: function (id) {
+        return this.apiRequest('companies/' + id, { method: 'GET' });
+    },
+
+    crmSaveCompany: function (data) {
+        return this.apiRequest('companies', {
+            method: 'POST',
+            body: data
+        });
+    },
+
+    crmDeleteCompany: function (id) {
+        return this.apiRequest('companies/' + id, {
+            method: 'DELETE'
+        });
+    },
+
+    crmPreviewCompanyEnrichment: function (data) {
+        return this.apiRequest('companies/preview-enrichment', {
+            method: 'POST',
+            body: data
+        });
+    },
+
+    /* ================= CONTACTS ================= */
+    crmGetContacts: function (params) {
+        let qs = params ? '?' + new URLSearchParams(params).toString() : '';
+        return this.apiRequest('contacts' + qs, { method: 'GET' });
+    },
+
+    crmGetContactsByCompany: function (companyId) {
+        return this.crmGetContacts({ companyId });
+    },
+
+    crmGetContact: function (id) {
+        return this.apiRequest('contacts/' + id, { method: 'GET' });
+    },
+
+    crmAddContact: function () {
+        return this.apiRequest('contacts', { method: 'GET' });
+    },
+
+    crmEditContact: function (id) {
+        return this.apiRequest('contacts/' + id, { method: 'GET' });
+    },
+
+    crmSaveContact: function (data) {
+        return this.apiRequest('contacts', {
+            method: 'POST',
+            body: data
+        });
+    },
+
+    crmDeleteContact: function (id) {
+        return this.apiRequest('contacts/' + id, {
+            method: 'DELETE'
+        });
+    },
+
+    /* ================= DEALS ================= */
+    crmGetDeals: function (params) {
+        let qs = params ? '?' + new URLSearchParams(params).toString() : '';
+        return this.apiRequest('deals' + qs, { method: 'GET' });
+    },
+
+    crmGetDeal: function (id) {
+        return this.apiRequest('deals/' + id, { method: 'GET' });
+    },
+
+    crmAddDeal: function () {
+        return this.apiRequest('deals', { method: 'GET' });
+    },
+
+    crmEditDeal: function (id) {
+        return this.apiRequest('deals/' + id, { method: 'GET' });
+    },
+
+    crmSaveDeal: function (data) {
+        return this.apiRequest('deals', {
+            method: 'POST',
+            body: data
+        });
+    },
+
+    crmDeleteDeal: function (id) {
+        return this.apiRequest('deals/' + id, {
+            method: 'DELETE'
+        });
+    },
+
+    crmUpdateDealStatus: function (data) {
+        return this.apiRequest('deals/change-status', {
+            method: 'POST',
+            body: data
+        });
+    },
+
+    /* ================= ACTIVITIES ================= */
+    crmGetActivities: function (params) {
+        let qs = params ? '?' + new URLSearchParams(params).toString() : '';
+        return this.apiRequest('activities' + qs, { method: 'GET' });
+    },
+
+    crmGetActivity: function (id) {
+        return this.apiRequest('activities/' + id, { method: 'GET' });
+    },
+
+    crmSaveActivity: function (data) {
+        return this.apiRequest('activities', {
+            method: 'POST',
+            body: data
+        });
+    },
+
+    crmUpdateActivity: function (data) {
+        return this.apiRequest('activities', {
+            method: 'POST',
+            body: data
+        });
+    },
+
+    crmDeleteActivity: function (id) {
+        return this.apiRequest('activities/' + id, {
+            method: 'DELETE'
+        });
+    },
+
+    crmUpdateActivityStatus: function (data) {
+        return this.apiRequest('activities/change-status', {
+            method: 'POST',
+            body: data
+        });
+    },
+
+    crmGetActivityStatusOptions: function (type, statusCode) {
+        return this.apiRequest(
+            'activities/status-options?type=' + type + '&statusCode=' + statusCode,
+            { method: 'GET' }
+        );
+    },
+
+    /* ================= USERS ================= */
+    crmGetUsers: function () {
+        return this.apiRequest('users', { method: 'GET' });
+    },
+
+    crmGetUser: function (id) {
+        return this.apiRequest('users/' + id, { method: 'GET' });
+    },
+
+    crmAddUser: function () {
+        return this.apiRequest('users', { method: 'GET' });
+    },
+
+    crmSaveUser: function (data) {
+        return this.apiRequest('users', {
+            method: 'POST',
+            body: data
+        });
+    },
+
+    crmUpdateUser: function (data) {
+        return this.apiRequest('users', {
+            method: 'PUT',
+            body: data
+        });
+    },
+
+    crmDeleteUser: function (id) {
+        return this.apiRequest('users/' + id, {
+            method: 'DELETE'
+        });
+    },
+
+    /* ================= ROLES ================= */
+    crmGetRoles: function () {
+        return this.apiRequest('roles', { method: 'GET' });
+    },
+
+    crmGetRole: function (roleId) {
+        return this.apiRequest('roles/' + roleId, { method: 'GET' });
+    },
+
+    crmCreateRole: function (data) {
+        return this.apiRequest('roles', {
+            method: 'POST',
+            body: data
+        });
+    },
+
+    crmDeleteRole: function (roleId) {
+        return this.apiRequest('roles/' + roleId, {
+            method: 'DELETE'
+        });
+    },
+
+    crmAssignRoleToUser: function (userId, roleId) {
+        return this.apiRequest('roles/assign', {
+            method: 'POST',
+            body: { userId, roleId }
+        });
+    },
+
+    /* ================= PROFILES ================= */
+    crmGetProfiles: function () {
+        return this.apiRequest('profiles', { method: 'GET' });
+    },
+
+    crmGetProfile: function (id) {
+        return this.apiRequest('profiles/' + id, { method: 'GET' });
+    },
+
+    crmCreateProfile: function (data) {
+        return this.apiRequest('profiles', {
+            method: 'POST',
+            body: data
+        });
+    },
+
+    crmUpdateProfile: function (id, data) {
+        data = data || {};
+        data.id = id;
+        return this.apiRequest('profiles', {
+            method: 'PUT',
+            body: data
+        });
+    },
+
+    crmDeleteProfile: function (id) {
+        return this.apiRequest('profiles/' + id, {
+            method: 'DELETE'
+        });
+    },
+
+    /* ================= PERMISSIONS ================= */
+    crmGetPermissions: function () {
+        return this.apiRequest('permissions', { method: 'GET' });
+    }
+});

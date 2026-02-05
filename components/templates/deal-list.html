@@ -1,0 +1,99 @@
+<template tag-name="deal-list">
+    <div class="page-container">
+
+        <header class="page-header">
+            <h1 class="title">Deals Board</h1>
+            <template lyte-if="{{canCreate}}">
+                <button onclick="{{action('createDeal')}}" class="add-btn">
+                    <span>+ New Deal</span>
+                </button>
+            </template>
+        </header>
+
+        <div class="controls-bar">
+            <div class="search-wrapper">
+                <span class="search-icon">🔍</span>
+                <input type="text" lyte-model="searchTerm" oninput="{{action('onSearch')}}" placeholder="Search deals..." class="search-input">
+            </div>
+
+            <div class="view-toggles">
+                <button class="toggle-btn {{viewType == 'kanban' ? 'active' : ''}}" onclick="{{action('setView', 'kanban')}}" title="Kanban View">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                </button>
+                <button class="toggle-btn {{viewType == 'list' ? 'active' : ''}}" onclick="{{action('setView', 'list')}}" title="List View">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+                </button>
+            </div>
+        </div>
+
+        <template lyte-if="{{isLoading}}">
+            <div class="loading-state">
+                <div class="spinner"></div>
+                <p>Loading pipeline...</p>
+            </div>
+        </template>
+
+        <template lyte-if="{{!isLoading}}">
+
+            <template lyte-if="{{viewType == 'kanban'}}">
+                <div class="kanban-container">
+                    <template is="for" items="{{kanbanData}}" item="column" index="i">
+                        <div class="kanban-column {{column.cssClass}}">
+
+                            <div class="column-header">
+                                <span class="col-title">{{column.label}}</span>
+                                <span class="col-count">{{column.count}}</span>
+                            </div>
+
+                            <div class="column-body">
+                                <template lyte-if="{{column.count === 0}}">
+                                    <div class="empty-col">No deals</div>
+                                </template>
+
+                                <template lyte-else>
+                                    <template is="for" items="{{column.items}}" item="deal" index="j">
+                                        <div class="kanban-card" onclick="{{action('viewDeal', deal.id)}}">
+                                            <div class="card-title">{{deal.title}}</div>
+                                            <div class="card-company">{{deal.companyName}}</div>
+                                            <div class="card-footer">
+                                                <span class="amount">{{deal.formattedAmount}}</span>
+                                                <span class="date">{{deal.date}}</span>
+                                            </div>
+                                        </div>
+                                    </template>
+                                </template>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </template>
+
+            <template lyte-if="{{viewType == 'list'}}">
+                <div class="list-container">
+                    <template lyte-if="{{displayedDeals.length === 0}}">
+                        <div class="empty-state">No deals found matching your search.</div>
+                    </template>
+
+                    <template lyte-else>
+                        <div class="deal-table">
+                            <template is="for" items="{{displayedDeals}}" item="deal" index="k">
+                                <div class="deal-row" onclick="{{action('viewDeal', deal.id)}}">
+                                    <div class="deal-info">
+                                        <div class="row-title">{{deal.title}}</div>
+                                        <div class="row-company">{{deal.companyName}}</div>
+                                    </div>
+                                    <div class="deal-status">
+                                        <span class="badge {{deal.status}}">{{deal.status}}</span>
+                                    </div>
+                                    <div class="deal-amount">{{deal.formattedAmount}}</div>
+                                    <div class="deal-arrow">›</div>
+                                </div>
+                            </template>
+                        </div>
+                    </template>
+                </div>
+            </template>
+
+        </template>
+    </div>
+</template>

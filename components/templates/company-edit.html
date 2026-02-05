@@ -1,0 +1,117 @@
+<template tag-name="company-edit">
+    <div class="page-container">
+
+        <header class="page-header">
+            <div class="header-left">
+                <button onclick="{{action('cancel')}}" class="btn-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
+                <h1 class="header-title">Edit Company</h1>
+            </div>
+        </header>
+
+        <template lyte-if="{{isLoading}}">
+            <div class="loading-state">
+                <div class="spinner"></div>
+                <p>Loading company...</p>
+            </div>
+        </template>
+
+        <template lyte-else>
+            <div class="form-container">
+                <div class="form-card">
+                    <form onsubmit="return false;">
+
+                        <div class="form-section">
+                            <h3 class="section-title">Basic Information</h3>
+
+                            <div class="form-row">
+                                <div class="form-group half">
+                                    <label>Company Name <span class="required">*</span></label>
+                                    <input type="text" id="inp_name" class="form-input">
+                                </div>
+                                <div class="form-group half">
+                                    <label>Domain</label>
+                                    <input type="text" id="inp_domain" class="form-input">
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group half">
+                                    <label>Email</label>
+                                    <input type="email" id="inp_email" class="form-input">
+                                </div>
+                                <div class="form-group half">
+                                    <label>Phone</label>
+                                    <input type="text" id="inp_phone" class="form-input">
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group half">
+                                    <label>Industry</label>
+                                    <input type="text" id="inp_industry" class="form-input">
+                                </div>
+                                <div class="form-group half">
+                                    <label>Company Size</label>
+                                    <select id="sel_size" class="form-select">
+                                        <option value="">Select size...</option>
+                                        <option value="1-10">1-10 employees</option>
+                                        <option value="11-50">11-50 employees</option>
+                                        <option value="51-200">51-200 employees</option>
+                                        <option value="201-500">201-500 employees</option>
+                                        <option value="501+">501+ employees</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3 class="section-title">Address</h3>
+
+                            <div class="form-group">
+                                <label>Address Line 1</label>
+                                <input type="text" id="inp_addr1" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label>Address Line 2</label>
+                                <input type="text" id="inp_addr2" class="form-input">
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group half">
+                                    <label>City</label>
+                                    <input type="text" id="inp_city" class="form-input">
+                                </div>
+                                <div class="form-group half">
+                                    <label>State</label>
+                                    <input type="text" id="inp_state" class="form-input">
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group half">
+                                    <label>Country</label>
+                                    <input type="text" id="inp_country" class="form-input">
+                                </div>
+                                <div class="form-group half">
+                                    <label>Postal Code</label>
+                                    <input type="text" id="inp_zip" class="form-input">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" onclick="{{action('cancel')}}" class="btn-secondary">Cancel</button>
+                            <button type="button" onclick="{{action('updateCompany')}}" class="btn-primary" disabled="{{isSaving}}">
+                                <template lyte-if="{{isSaving}}">Saving...</template>
+                                <template lyte-else>Save Changes</template>
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </template>
+    </div>
+</template>

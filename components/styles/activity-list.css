@@ -1,0 +1,100 @@
+/* CONTAINER */
+.page-container {
+    padding: 20px;
+    background-color: #f4f7f6;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* FIX: Stop the whole page from scrolling */
+}
+
+/* HEADER */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-shrink: 0; /* Prevent header from squishing */
+}
+.title { font-size: 24px; color: #1e293b; margin: 0; }
+.add-btn { background: #2563eb; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; }
+
+/* FILTERS */
+.filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+    flex-shrink: 0; /* Prevent filters from squishing */
+}
+/* ... (Keep existing status-tabs and type-filters styles) ... */
+.status-tabs { display: flex; gap: 10px; }
+.status-tab {
+    padding: 6px 14px; border-radius: 20px; border: 1px solid #e2e8f0;
+    background: white; color: #64748b; font-size: 13px; font-weight: 500; cursor: pointer;
+}
+.status-tab.active { background: #2563eb; color: white; border-color: #2563eb; }
+.count { background: rgba(0,0,0,0.1); padding: 2px 6px; border-radius: 10px; font-size: 11px; margin-left: 5px; }
+
+.type-filters { margin-left: auto; display: flex; gap: 5px; }
+.type-btn {
+    width: 32px; height: 32px; border: 1px solid #e2e8f0; background: white;
+    border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center;
+}
+.type-btn.active { background: #cbd5e1; border-color: #94a3b8; }
+.type-icon { width: 12px; height: 12px; background: #64748b; border-radius: 50%; }
+
+/* LIST CARD - SCROLL FIX IS HERE */
+.activities-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+
+    /* FIX: Make this element fill space and scroll */
+    flex-grow: 1;
+    overflow-y: auto;
+    min-height: 0; /* Crucial for flex child scrolling */
+
+    display: flex;
+    flex-direction: column;
+}
+
+/* ... (Keep existing row styles) ... */
+.group-header {
+    background: #f8fafc; padding: 10px 20px; border-bottom: 1px solid #f1f5f9;
+    font-size: 12px; font-weight: bold; color: #94a3b8; text-transform: uppercase;
+    position: sticky; top: 0; z-index: 1; /* Bonus: Sticky Group Headers */
+}
+
+.activity-row {
+    display: flex; gap: 15px; padding: 15px 20px;
+    border-bottom: 1px solid #f1f5f9; cursor: pointer;
+}
+.activity-row:hover { background: #fdfdfd; }
+.activity-row.overdue { border-left: 3px solid #ef4444; }
+
+.row-icon-box {
+    width: 40px; height: 40px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    color: white; flex-shrink: 0;
+}
+.row-icon-box.TASK { background: #3b82f6; }
+.row-icon-box.CALL { background: #10b981; }
+.row-icon-box.MEETING { background: #8b5cf6; }
+.row-icon-box.EMAIL { background: #f59e0b; }
+.row-icon-box.LETTER { background: #64748b; }
+.row-icon-box.SOCIAL_MEDIA { background: #ec4899; }
+
+.row-content { flex-grow: 1; }
+.row-header { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+.type-label { font-size: 11px; font-weight: bold; color: #64748b; }
+.status-badge { font-size: 11px; font-weight: bold; background: #f1f5f9; padding: 2px 6px; border-radius: 4px; }
+
+.row-desc { font-size: 14px; font-weight: 500; color: #1e293b; margin-bottom: 4px; }
+.row-meta { font-size: 12px; color: #94a3b8; }
+.text-danger { color: #ef4444; font-weight: 500; }
+.row-action { color: #cbd5e1; font-weight: bold; }
+
+.loading-state, .empty-state { padding: 40px; text-align: center; color: #94a3b8; }
+.spinner { width: 30px; height: 30px; border: 3px solid #cbd5e1; border-top-color: #2563eb; border-radius: 50%; margin: 0 auto 10px; animation: spin 1s infinite linear; }
+@keyframes spin { to { transform: rotate(360deg); } }

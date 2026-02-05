@@ -1,0 +1,96 @@
+<template tag-name="role-view">
+    <div class="page-container">
+
+        <header class="page-header">
+            <div class="header-left">
+                <button onclick="{{action('goBack')}}" class="btn-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
+                <h1 class="header-title">Role Details</h1>
+            </div>
+        </header>
+
+        <template lyte-if="{{isLoading}}">
+            <div class="loading-state">
+                <div class="spinner"></div>
+                <p>Loading role...</p>
+            </div>
+        </template>
+
+        <template lyte-else>
+            <div class="view-content">
+
+                <div class="role-header-card">
+                    <div class="role-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    </div>
+                    <div class="role-info">
+                        <h2>{{role.roleName}}</h2>
+                        <div class="role-meta">ID: {{role.id}}</div>
+                    </div>
+                    <div class="role-actions">
+                        <button onclick="{{action('deleteRole')}}" class="btn-danger-ghost">Delete Role</button>
+                    </div>
+                </div>
+
+                <div class="role-body">
+                    <h3 class="section-title">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mr-2"><polyline points="17 11 12 6 7 11"></polyline><polyline points="17 18 12 13 7 18"></polyline></svg>
+                        Hierarchy
+                    </h3>
+
+                    <div class="hierarchy-card">
+
+                        <div class="hierarchy-item">
+                            <div class="label">Reports To:</div>
+                            <div class="value">
+                                <template lyte-if="{{role.reportsTo}}">
+                                    <a onclick="{{action('navigateToRole', role.reportsTo.id)}}" class="role-link parent">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="17 11 12 6 7 11"></polyline></svg>
+                                        {{role.reportsTo.name}}
+                                    </a>
+                                </template>
+                                <template lyte-else>
+                                    <span class="text-secondary">None (Top-level role)</span>
+                                </template>
+                            </div>
+                        </div>
+
+                        <div class="h-divider"></div>
+
+                        <div class="hierarchy-item">
+                            <div class="label">Subordinates:</div>
+                            <div class="value">
+                                <template lyte-if="{{role.subordinates.length > 0}}">
+                                    <div class="sub-list">
+                                        <template is="for" items="{{role.subordinates}}" item="sub">
+                                            <a onclick="{{action('navigateToRole', sub.id)}}" class="role-link child">
+                                                {{sub.name}}
+                                            </a>
+                                        </template>
+                                    </div>
+                                </template>
+                                <template lyte-else>
+                                    <span class="text-secondary">None</span>
+                                </template>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="info-note">
+                        <div class="note-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                        </div>
+                        <div class="note-text">
+                            <strong>Note:</strong> Roles define organizational hierarchy and data visibility scope.
+                            Permissions are managed through Profiles.
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </template>
+    </div>
+</template>

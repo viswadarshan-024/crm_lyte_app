@@ -1,0 +1,123 @@
+<template tag-name="deal-create">
+    <div class="page-container">
+
+        <header class="page-header">
+            <div class="header-left">
+                <button onclick="{{action('cancel')}}" class="btn-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
+                <h1 class="header-title">New Deal</h1>
+            </div>
+        </header>
+
+        <template lyte-if="{{isLoading}}">
+            <div class="loading-container">
+                <div class="spinner"></div>
+                <p>Loading configuration...</p>
+            </div>
+        </template>
+
+        <template lyte-else>
+            <div class="form-card">
+                <form onsubmit="return false;">
+
+                    <div class="form-section">
+                        <h3 class="section-title">Deal Details</h3>
+
+                        <div class="form-group">
+                            <label>Deal Title <span class="required">*</span></label>
+                            <input type="text"
+                                   id="inp_title"
+                                   lyte-model="title"
+                                   class="form-input"
+                                   placeholder="e.g. Acme Corp Enterprise License"
+                                   maxlength="150">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group half">
+                                <label>Amount ($) <span class="required">*</span></label>
+                                <input type="number"
+                                       id="inp_amount"
+                                       lyte-model="amount"
+                                       class="form-input"
+                                       step="0.01" min="0.01"
+                                       placeholder="0.00">
+                            </div>
+                            <div class="form-group half">
+                                <label>Order Type <span class="required">*</span></label>
+                                <select lyte-model="orderType" class="form-select">
+                                    <template is="for" items="{{orderTypes}}" item="type">
+                                        <option value="{{type}}">{{type}}</option>
+                                    </template>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3 class="section-title">Ownership</h3>
+
+                        <div class="form-row">
+                            <div class="form-group half">
+                                <label>Company <span class="required">*</span></label>
+                                <select id="sel_company"
+                                        lyte-model="selectedCompany"
+                                        onchange="{{action('onCompanySelect', event)}}"
+                                        class="form-select">
+                                    <option value="">Select Company...</option>
+                                    <template is="for" items="{{companies}}" item="comp">
+                                        <option value="{{comp.id}}">{{comp.name}}</option>
+                                    </template>
+                                </select>
+                            </div>
+
+                            <div class="form-group half">
+                                <label>Assigned To <span class="required">*</span></label>
+                                <select lyte-model="assignedUserId" class="form-select">
+                                    <template is="for" items="{{users}}" item="u">
+                                        <option value="{{u.id}}">{{u.fullName}} ({{u.roleName}})</option>
+                                    </template>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Contacts <span class="hint-text">(Select company to view)</span></label>
+                            <div class="contacts-box">
+                                <template lyte-if="{{!selectedCompany}}">
+                                    <div class="empty-msg">Please select a company first.</div>
+                                </template>
+                                <template lyte-else>
+                                    <template lyte-if="{{filteredContacts.length === 0}}">
+                                        <div class="empty-msg">No contacts found.</div>
+                                    </template>
+                                    <template lyte-else>
+                                        <template is="for" items="{{filteredContacts}}" item="c">
+                                            <label class="contact-row">
+                                                <input type="checkbox" onchange="{{action('toggleContact', c.id, event)}}">
+                                                <div class="contact-text">
+                                                    <div class="c-name">{{c.name}}</div>
+                                                    <div class="c-job">{{c.jobTitle}}</div>
+                                                </div>
+                                            </label>
+                                        </template>
+                                    </template>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" onclick="{{action('cancel')}}" class="btn-secondary">Cancel</button>
+                        <button type="button" onclick="{{action('createDeal')}}" class="btn-primary" disabled="{{isSaving}}">
+                            <template lyte-if="{{isSaving}}">Saving...</template>
+                            <template lyte-else>Create Deal</template>
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+        </template>
+    </div>
+</template>

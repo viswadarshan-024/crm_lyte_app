@@ -1,0 +1,113 @@
+<template tag-name="user-create">
+    <div class="page-container">
+
+        <header class="page-header">
+            <div class="header-left">
+                <button onclick="{{action('cancel')}}" class="btn-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
+                <h1 class="header-title">Add User</h1>
+            </div>
+        </header>
+
+        <template lyte-if="{{isLoading}}">
+            <div class="loading-state">
+                <div class="spinner"></div>
+                <p>Loading form data...</p>
+            </div>
+        </template>
+
+        <template lyte-else>
+            <div class="form-container">
+                <div class="form-card">
+                    <form onsubmit="return false;">
+
+                        <div class="form-section">
+                            <h3 class="section-title">Account Information</h3>
+
+                            <div class="form-row">
+                                <div class="form-group half">
+                                    <label>Username <span class="required">*</span></label>
+                                    <input type="text" id="inp_username" class="form-input" placeholder="e.g. jdoe" autocomplete="off">
+                                </div>
+                                <div class="form-group half">
+                                    <label>Email <span class="required">*</span></label>
+                                    <input type="email" id="inp_email" class="form-input" placeholder="user@example.com" autocomplete="off">
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group half">
+                                    <label>Password <span class="required">*</span></label>
+                                    <input type="password" id="inp_password" class="form-input" placeholder="Min 6 chars" onkeyup="{{action('checkPassword', event)}}">
+                                    <div class="strength-bar">
+                                        <div class="bar-fill {{passwordStrength}}"></div>
+                                    </div>
+                                </div>
+                                <div class="form-group half">
+                                    <label>Confirm Password <span class="required">*</span></label>
+                                    <input type="password" id="inp_confirm" class="form-input" placeholder="Re-enter password">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3 class="section-title">Personal Information</h3>
+                            <div class="form-group">
+                                <label>Full Name <span class="required">*</span></label>
+                                <input type="text" id="inp_fullname" class="form-input" placeholder="e.g. John Doe">
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3 class="section-title">Role & Access</h3>
+
+                            <div class="form-row">
+                                <div class="form-group half">
+                                    <label>Role <span class="required">*</span></label>
+                                    <select id="sel_role" class="form-select">
+                                        <option value="">Select Role...</option>
+                                        <template is="for" items="{{roles}}" item="role">
+                                            <option value="{{role.id}}">{{role.name}}</option>
+                                        </template>
+                                    </select>
+                                    <div class="hint">Defines hierarchy and visibility</div>
+                                </div>
+
+                                <div class="form-group half">
+                                    <label>Profile <span class="required">*</span></label>
+                                    <select id="sel_profile" class="form-select">
+                                        <option value="">Select Profile...</option>
+                                        <template is="for" items="{{profiles}}" item="prof">
+                                            <option value="{{prof.id}}">{{prof.name}}</option>
+                                        </template>
+                                    </select>
+                                    <div class="hint">Defines specific permissions</div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Reports To (Manager)</label>
+                                <select id="sel_manager" class="form-select">
+                                    <option value="">No Manager (Top Level)</option>
+                                    <template is="for" items="{{users}}" item="user">
+                                        <option value="{{user.id}}">{{user.fullName}} ({{user.roleName}})</option>
+                                    </template>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" onclick="{{action('cancel')}}" class="btn-secondary">Cancel</button>
+                            <button type="button" onclick="{{action('createUser')}}" class="btn-primary" disabled="{{isSaving}}">
+                                <template lyte-if="{{isSaving}}">Creating...</template>
+                                <template lyte-else>Create User</template>
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </template>
+    </div>
+</template>

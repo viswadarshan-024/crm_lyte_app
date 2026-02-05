@@ -4,7 +4,7 @@ Lyte.Component.register("crm-app", {
 	beforeModel: function(transition) {
 		// 1. Security Check
 		if (!this.isAuthenticated()) {
-			Lyte.Router.transitionTo('login');
+			Lyte.Router.transitionTo('login-comp');
 			return;
 		}
 

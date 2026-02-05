@@ -1,0 +1,73 @@
+.page-container {
+    padding: 20px;
+    background-color: #f4f7f6;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.form-card {
+    background: white;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.form-section { margin-bottom: 30px; }
+.section-title {
+    font-size: 12px; font-weight: bold; text-transform: uppercase;
+    color: #94a3b8; border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 8px; margin-bottom: 15px;
+}
+
+.form-row { display: flex; gap: 20px; }
+.half { flex: 1; }
+
+.form-group { margin-bottom: 15px; }
+.form-group label {
+    display: block; font-size: 14px; font-weight: 500;
+    color: #334155; margin-bottom: 5px;
+}
+.required { color: #ef4444; }
+.hint-text { font-weight: normal; font-size: 12px; color: #94a3b8; margin-left: 5px; }
+
+.form-input, .form-select {
+    width: 100%; padding: 10px; border: 1px solid #cbd5e1;
+    border-radius: 6px; font-size: 14px; box-sizing: border-box; /* Fix width issues */
+}
+.form-input:focus, .form-select:focus { outline: none; border-color: #3b82f6; }
+
+/* CONTACTS BOX */
+.contacts-box {
+    border: 1px solid #cbd5e1; border-radius: 6px;
+    background: #f8fafc;
+    height: 200px; overflow-y: auto;
+}
+.empty-msg {
+    padding: 20px; text-align: center; color: #94a3b8; font-size: 13px;
+    display: flex; align-items: center; justify-content: center; height: 100%;
+}
+
+.contact-row {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 15px; border-bottom: 1px solid #e2e8f0;
+    cursor: pointer; background: white;
+}
+.contact-row:hover { background: #f1f5f9; }
+.contact-row input { cursor: pointer; }
+
+.c-name { font-size: 14px; font-weight: 500; color: #1e293b; }
+.c-job { font-size: 12px; color: #64748b; }
+
+/* ACTIONS */
+.form-actions {
+    display: flex; justify-content: flex-end; gap: 10px;
+    padding-top: 20px; border-top: 1px solid #e2e8f0;
+}
+.btn-primary, .btn-secondary {
+    padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: 500; font-size: 14px;
+}
+.btn-primary { background: #2563eb; color: white; border: none; }
+.btn-secondary { background: white; border: 1px solid #cbd5e1; color: #334155; }
+.btn-primary:disabled { background: #93c5fd; cursor: not-allowed; }

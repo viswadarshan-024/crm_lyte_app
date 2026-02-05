@@ -1,60 +1,77 @@
 <template tag-name="contact-create">
-    <div class="page-content">
-        <div class="card form-container">
-            <div class="card-body">
-                <h2 class="form-title">Create New Contact</h2>
+    <div class="page-container">
+        
+        <header class="page-header">
+            <div class="header-left">
+                <button onclick="{{action('cancel')}}" class="btn-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
+                <h1 class="header-title">Add Contact</h1>
+            </div>
+        </header>
 
-                <template is="if" value="{{errorMessage}}">
-                    <div class="alert alert-error">{{errorMessage}}</div>
-                </template>
+        <template lyte-if="{{isLoading}}">
+            <div class="loading-state">
+                <div class="spinner"></div>
+                <p>Loading form...</p>
+            </div>
+        </template>
 
-                <div class="form-section">
-                    <div class="form-group">
-                        <label>Full Name <span class="required">*</span></label>
-                        <input type="text" lyte-model="contactName" class="form-input" placeholder="Contact Name">
-                    </div>
+        <template lyte-else>
+            <div class="form-container">
+                <div class="form-card">
+                    <form onsubmit="return false;">
+                        
+                        <div class="form-section">
+                            <h3 class="section-title">Contact Information</h3>
+                            
+                            <div class="form-group">
+                                <label>Full Name <span class="required">*</span></label>
+                                <input type="text" id="inp_name" class="form-input" placeholder="e.g. Jane Doe">
+                            </div>
 
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Email</label>
-                            <input type="email" lyte-model="contactEmail" class="form-input" placeholder="email@example.com">
+                            <div class="form-row">
+                                <div class="form-group half">
+                                    <label>Email</label>
+                                    <input type="email" id="inp_email" class="form-input" placeholder="jane@example.com">
+                                </div>
+                                <div class="form-group half">
+                                    <label>Phone</label>
+                                    <input type="text" id="inp_phone" class="form-input" placeholder="+1 555-0123">
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label>Phone</label>
-                            <input type="tel" lyte-model="contactPhone" class="form-input" placeholder="+91 9999999999">
+
+                        <div class="form-section">
+                            <h3 class="section-title">Professional Details</h3>
+                            
+                            <div class="form-group">
+                                <label>Company <span class="required">*</span></label>
+                                <select id="sel_company" class="form-select" lyte-model="selectedCompanyId">
+                                    <option value="">Select Company...</option>
+                                    <template is="for" items="{{companies}}" item="comp">
+                                        <option value="{{comp.id}}">{{comp.name}}</option>
+                                    </template>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Job Title</label>
+                                <input type="text" id="inp_job" class="form-input" placeholder="e.g. Purchasing Manager">
+                            </div>
                         </div>
-                    </div>
-                </div>
 
-                <div class="form-section">
-                    <div class="form-group">
-                        <label>Company <span class="required">*</span></label>
-                        <select lyte-model="selectedCompany" class="form-select">
-                            <option value="">Select Company...</option>
-                            <template is="for" items="{{companyList}}" item="company" index="i">
-                                <option value="{{company.id}}">{{company.name}}</option>
-                            </template>
-                        </select>
-                    </div>
+                        <div class="form-actions">
+                            <button type="button" onclick="{{action('cancel')}}" class="btn-secondary">Cancel</button>
+                            <button type="button" onclick="{{action('createContact')}}" class="btn-primary" disabled="{{isSaving}}">
+                                <template lyte-if="{{isSaving}}">Creating...</template>
+                                <template lyte-else>Create Contact</template>
+                            </button>
+                        </div>
 
-                    <div class="form-group">
-                        <label>Designation</label>
-                        <input type="text" lyte-model="contactDesignation" class="form-input" placeholder="e.g. CEO">
-                    </div>
-                </div>
-
-                <div class="form-actions">
-                    <button class="btn btn-primary" onclick="{{action('createContact')}}" disabled="{{isLoading}}">
-                        <template is="if" value="{{isLoading}}">
-                            Creating...
-                        </template>
-                        <template is="else">
-                            Create Contact
-                        </template>
-                    </button>
-                    <a href="#/contacts" class="btn btn-secondary">Cancel</a>
+                    </form>
                 </div>
             </div>
-        </div>
+        </template>
     </div>
 </template>

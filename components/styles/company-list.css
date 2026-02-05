@@ -1,0 +1,90 @@
+/* 1. LOCK THE PAGE CONTAINER */
+.page-container {
+    padding: 20px;
+    background-color: #f4f7f6;
+    height: 100vh; /* Force full viewport height */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Stop main page scroll */
+}
+
+/* 2. PREVENT HEADER SHRINKING */
+.page-header {
+    display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;
+    flex-shrink: 0;
+}
+.title { font-size: 24px; color: #1e293b; margin: 0; }
+.add-btn { background: #2563eb; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; }
+
+.controls-bar {
+    margin-bottom: 25px;
+    flex-shrink: 0;
+}
+.search-wrapper {
+    background: white; border: 1px solid #e2e8f0; border-radius: 6px;
+    padding: 10px 12px; display: flex; align-items: center;
+}
+.search-input { border: none; outline: none; width: 100%; font-size: 14px; margin-left: 8px; }
+
+/* 3. MAKE THE GRID SCROLLABLE */
+.companies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+
+    /* SCROLL PROPERTIES */
+    flex-grow: 1;         /* Fill remaining space */
+    overflow-y: auto;     /* Scroll internally */
+    min-height: 0;        /* Flexbox fix */
+    padding-bottom: 20px; /* Padding for bottom of scroll */
+    align-content: start; /* Keep items at top even if few */
+}
+
+/* 4. CENTER LOADING/EMPTY STATES */
+.loading-state, .empty-state {
+    flex-grow: 1; /* Fill space */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #94a3b8;
+    text-align: center;
+}
+.empty-icon { font-size: 40px; margin-bottom: 10px; }
+.spinner { width: 30px; height: 30px; border: 3px solid #cbd5e1; border-top-color: #2563eb; border-radius: 50%; margin: 0 auto 10px; animation: spin 1s infinite linear; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+
+/* CARD STYLES (Unchanged) */
+.company-card {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    gap: 15px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    border: 1px solid #e2e8f0;
+    cursor: pointer;
+    transition: transform 0.1s, box-shadow 0.1s;
+    height: fit-content; /* Don't stretch vertically in grid */
+}
+
+.company-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border-color: #cbd5e1;
+}
+
+.company-avatar {
+    width: 48px; height: 48px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-weight: bold; font-size: 18px;
+    flex-shrink: 0;
+}
+
+.company-info { flex: 1; min-width: 0; }
+.company-name { font-size: 16px; font-weight: 600; color: #1e293b; margin-bottom: 8px; }
+
+.company-meta { display: flex; flex-direction: column; gap: 5px; }
+.meta-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #64748b; }
+.meta-item svg { color: #94a3b8; }

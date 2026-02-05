@@ -1,0 +1,95 @@
+<template tag-name="activity-list">
+    <div class="page-container">
+
+        <header class="page-header">
+            <h1 class="title">Activities</h1>
+            <template lyte-if="{{canCreate}}">
+                <button onclick="{{action('createActivity')}}" class="add-btn">
+                    <span>+ New Activity</span>
+                </button>
+            </template>
+        </header>
+
+        <div class="filter-bar">
+
+            <div class="status-tabs">
+                <button class="status-tab {{currentStatusFilter == 'all' ? 'active' : ''}}"
+                        onclick="{{action('filterStatus', 'all')}}">
+                    All <span class="count">{{counts.all}}</span>
+                </button>
+                <button class="status-tab {{currentStatusFilter == 'pending' ? 'active' : ''}}"
+                        onclick="{{action('filterStatus', 'pending')}}">
+                    Pending <span class="count">{{counts.pending}}</span>
+                </button>
+                <button class="status-tab {{currentStatusFilter == 'overdue' ? 'active' : ''}}"
+                        onclick="{{action('filterStatus', 'overdue')}}">
+                    Overdue <span class="count">{{counts.overdue}}</span>
+                </button>
+                <button class="status-tab {{currentStatusFilter == 'completed' ? 'active' : ''}}"
+                        onclick="{{action('filterStatus', 'completed')}}">
+                    Completed <span class="count">{{counts.completed}}</span>
+                </button>
+            </div>
+
+            <div class="type-filters">
+                <template is="for" items="{{ACTIVITY_TYPES}}" item="type" index="k">
+                    <button class="type-btn {{currentTypeFilter == type ? 'active' : ''}}"
+                            onclick="{{action('filterType', type)}}"
+                            title="{{type}}">
+                        <span class="type-icon {{type}}"></span>
+                    </button>
+                </template>
+            </div>
+        </div>
+
+        <template lyte-if="{{isLoading}}">
+            <div class="loading-state">
+                <div class="spinner"></div>
+                <p>Loading activities...</p>
+            </div>
+        </template>
+
+        <template lyte-else>
+            <div class="activities-card">
+
+                <template lyte-if="{{groupedActivities.length === 0}}">
+                    <div class="empty-state">No activities found matching your filters.</div>
+                </template>
+
+                <template lyte-else>
+                    <template is="for" items="{{groupedActivities}}" item="group" index="i">
+                        <div class="group-section">
+                            <div class="group-header">{{group.title}} ({{group.count}})</div>
+                                <template is="for" items="{{group.items}}" item="act" index="j">
+                                <div class="activity-row {{act.isOverdue ? 'overdue' : ''}}" onclick="{{action('viewActivity', act.id)}}">
+
+                                    <div class="row-icon-box {{act.type}}">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                    </div>
+
+                                    <div class="row-content">
+                                        <div class="row-header">
+                                            <span class="type-label">{{act.type}}</span>
+                                            <span class="status-badge" style="color: {{act.statusColor}}">{{act.statusCode}}</span>
+                                        </div>
+                                        <div class="row-desc">{{act.description}}</div>
+                                        <div class="row-meta">
+                                            <span class="{{act.isOverdue ? 'text-danger' : ''}}">{{act.formattedDate}}</span>
+                                            <template lyte-if="{{act.dealTitle}}">
+                                                <span class="dot">•</span>
+                                                <span class="deal-link">{{act.dealTitle}}</span>
+                                            </template>
+                                        </div>
+                                    </div>
+
+                                    <div class="row-action">›</div>
+                                </div>
+                            </template>
+                        </div>
+                    </template>
+                </template>
+            </div>
+        </template>
+
+    </div>
+</template>

@@ -1,0 +1,118 @@
+<template tag-name="activity-view">
+    <div class="page-container">
+
+        <header class="page-header">
+            <div class="header-left">
+                <button onclick="{{action('goBack')}}" class="btn-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
+                <h1 class="header-title">Activity Details</h1>
+            </div>
+        </header>
+
+        <template lyte-if="{{isLoading}}">
+            <div class="loading-state">
+                <div class="spinner"></div>
+                <p>Loading activity...</p>
+            </div>
+        </template>
+
+        <template lyte-else>
+            <div class="view-content">
+
+                <div class="activity-header-card">
+                    <div class="header-top">
+                        <div class="type-icon {{activity.type}}">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        </div>
+                        <div class="header-info">
+                            <h2>{{activity.type}}</h2>
+                            <div class="meta">ID: #{{activity.id}}</div>
+                        </div>
+                        <div class="actions">
+                            <template lyte-if="{{canEdit}}">
+                                <button onclick="{{action('editActivity')}}" class="btn-secondary">Edit</button>
+                            </template>
+                            <template lyte-if="{{canDelete}}">
+                                <button onclick="{{action('deleteActivity')}}" class="btn-danger-ghost">Delete</button>
+                            </template>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="status-box">
+                    <div class="status-label">Current Status</div>
+
+                    <div class="current-status" style="background-color: {{statusBg}}; color: {{statusColor}}">
+                        {{activity.statusLabel || activity.statusCode}}
+                        <template lyte-if="{{isTerminal}}"> ✓</template>
+                    </div>
+
+                    <template lyte-if="{{canChangeStatus}}">
+                        <template lyte-if="{{statusOptions.length > 0}}">
+                            <div class="transition-row">
+                                <span class="move-label">Move to:</span>
+                                <template is="for" items="{{statusOptions}}" item="opt">
+                                    <button class="status-btn" onclick="{{action('changeStatus', opt.code)}}">
+                                        {{opt.label}}
+                                    </button>
+                                </template>
+                            </div>
+                        </template>
+                    </template>
+                </div>
+
+                <div class="activity-body">
+
+                    <h3 class="section-title">Details</h3>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <div class="label">Due Date</div>
+                            <div class="value {{isOverdue ? 'text-danger' : ''}}">
+                                {{formattedDueDate}}
+                                <template lyte-if="{{isOverdue}}"> (Overdue)</template>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="label">Owner</div>
+                            <div class="value">User #{{activity.ownerUserId}}</div>
+                        </div>
+                    </div>
+
+                    <h3 class="section-title">Description</h3>
+                    <div class="desc-box">
+                        {{activity.description}}
+                    </div>
+
+                    <template lyte-if="{{deal}}">
+                        <h3 class="section-title">Linked Deal</h3>
+                        <div class="linked-card" onclick="{{action('viewDeal', deal.id)}}">
+                            <div class="card-icon deal">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path></svg>
+                            </div>
+                            <div class="card-info">
+                                <div class="card-title">{{deal.title}}</div>
+                                <div class="card-sub">{{deal.status}}</div>
+                            </div>
+                            <div class="card-arrow">›</div>
+                        </div>
+                    </template>
+
+                    <template lyte-if="{{company}}">
+                        <h3 class="section-title">Related Company</h3>
+                        <div class="linked-card" onclick="{{action('viewCompany', company.id)}}">
+                            <div class="card-icon company">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18"></path><path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"></path></svg>
+                            </div>
+                            <div class="card-info">
+                                <div class="card-title">{{company.name}}</div>
+                            </div>
+                        </div>
+                    </template>
+
+                </div>
+
+            </div>
+        </template>
+    </div>
+</template>

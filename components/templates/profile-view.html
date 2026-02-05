@@ -1,0 +1,79 @@
+<template tag-name="profile-view">
+    <div class="page-container">
+
+        <header class="page-header">
+            <div class="header-left">
+                <button onclick="{{action('goBack')}}" class="btn-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
+                <h1 class="header-title">Profile Details</h1>
+            </div>
+        </header>
+
+        <template lyte-if="{{isLoading}}">
+            <div class="loading-state">
+                <div class="spinner"></div>
+                <p>Loading permissions...</p>
+            </div>
+        </template>
+
+        <template lyte-else>
+            <div class="view-content">
+
+                <div class="profile-header-card">
+                    <div class="profile-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><line x1="19" y1="8" x2="19" y2="14"></line><line x1="22" y1="11" x2="16" y2="11"></line></svg>
+                    </div>
+                    <div class="profile-info">
+                        <h2>{{profile.name}}</h2>
+                        <div class="desc">{{profile.description}}</div>
+                        <div class="meta">{{totalCount}} permissions assigned</div>
+                    </div>
+                    <div class="profile-actions">
+                        <button onclick="{{action('editProfile')}}" class="btn-primary">Edit Profile</button>
+                        <button onclick="{{action('deleteProfile')}}" class="btn-danger-ghost">Delete</button>
+                    </div>
+                </div>
+
+                <div class="profile-body">
+                    <h3 class="section-title">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mr-2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        Permissions
+                    </h3>
+
+                    <template lyte-if="{{totalCount === 0}}">
+                        <div class="empty-perms">
+                            <p>No permissions assigned.</p>
+                            <button onclick="{{action('editProfile')}}" class="btn-sm">Add Permissions</button>
+                        </div>
+                    </template>
+
+                    <template lyte-else>
+                        <div class="permissions-grid">
+                            <template is="for" items="{{permissionGroups}}" item="group">
+                                <div class="permission-group">
+                                    <div class="group-title">
+                                        <div class="group-icon {{group.class}}">
+                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle></svg>
+                                        </div>
+                                        {{group.title}}
+                                    </div>
+                                    <div class="group-list">
+                                        <template is="for" items="{{group.list}}" item="p">
+                                            <div class="perm-item">
+                                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="check"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                                {{p}}
+                                            </div>
+                                        </template>
+                                    </div>
+                                </div>
+                            </template>
+                        </div>
+                    </template>
+
+                </div>
+
+            </div>
+        </template>
+    </div>
+</template>

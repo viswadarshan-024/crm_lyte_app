@@ -1,0 +1,94 @@
+<template tag-name="profile-list">
+    <div class="page-container">
+
+        <header class="page-header">
+            <h1 class="title">Profiles</h1>
+            <template lyte-if="{{canManage}}">
+                <button onclick="{{action('createProfile')}}" class="add-btn">
+                    <span>+ Create Profile</span>
+                </button>
+            </template>
+        </header>
+
+        <div class="info-banner">
+            <div class="banner-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+            </div>
+            <div class="banner-content">
+                <p class="banner-title">What are Profiles?</p>
+                <p class="banner-text">Profiles define what features users can access. Assign a profile to a user to grant them permissions.</p>
+            </div>
+        </div>
+
+        <template lyte-if="{{isLoading}}">
+            <div class="loading-state">
+                <div class="spinner"></div>
+                <p>Loading profiles...</p>
+            </div>
+        </template>
+
+        <template lyte-else>
+
+            <template lyte-if="{{profiles.length === 0}}">
+                <div class="empty-state">No profiles found.</div>
+            </template>
+
+            <template lyte-else>
+                <div class="profiles-grid">
+                    <template is="for" items="{{profiles}}" item="profile">
+                        <div class="profile-card">
+
+                            <div class="card-header">
+                                <div class="profile-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><line x1="19" y1="8" x2="19" y2="14"></line><line x1="22" y1="11" x2="16" y2="11"></line></svg>
+                                </div>
+
+                                <div class="dropdown-wrapper">
+                                    <button class="btn-icon-dots" onclick="{{action('toggleDropdown', profile.id, event)}}">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+                                    </button>
+
+                                    <template lyte-if="{{openDropdownId == profile.id}}">
+                                        <div class="dropdown-menu">
+                                            <a onclick="{{action('viewProfile', profile.id)}}" class="menu-item">View Details</a>
+                                            <a onclick="{{action('editProfile', profile.id)}}" class="menu-item">Edit Profile</a>
+                                            <div class="divider"></div>
+                                            <a onclick="{{action('deleteProfile', profile.id, profile.name)}}" class="menu-item text-danger">Delete</a>
+                                        </div>
+                                    </template>
+                                </div>
+                            </div>
+
+                            <h3 class="profile-name">{{profile.name}}</h3>
+                            <p class="profile-desc">{{profile.description}}</p>
+
+                            <div class="perm-count">{{profile.totalCount}} permission(s)</div>
+
+                            <template lyte-if="{{profile.totalCount > 0}}">
+                                <div class="perm-section">
+                                    <div class="perm-label">Permissions</div>
+                                    <div class="tags-container">
+                                        <template is="for" items="{{profile.visiblePermissions}}" item="perm">
+                                            <span class="tag">{{perm}}</span>
+                                        </template>
+
+                                        <template lyte-if="{{profile.remainingCount > 0}}">
+                                            <span class="tag more">+{{profile.remainingCount}} more</span>
+                                        </template>
+                                    </div>
+                                </div>
+                            </template>
+
+                            <div class="card-footer">
+                                <button onclick="{{action('viewProfile', profile.id)}}" class="btn-sm">View</button>
+                                <button onclick="{{action('editProfile', profile.id)}}" class="btn-sm ghost">Edit</button>
+                            </div>
+
+                        </div>
+                    </template>
+                </div>
+            </template>
+
+        </template>
+    </div>
+</template>

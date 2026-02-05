@@ -1,0 +1,35 @@
+/* Inherit standard form styles from previous Create/Edit pages */
+/* ... (Container, header, form-group, inputs, actions) ... */
+
+.form-container { max-width: 720px; margin: 0 auto; }
+.form-card { background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 24px; }
+
+.section-title { font-size: 16px; font-weight: 700; color: #1e293b; margin: 0 0 16px 0; border-bottom: 1px solid #f1f5f9; padding-bottom: 8px; }
+.form-section { margin-bottom: 30px; }
+.form-row { display: flex; gap: 20px; margin-bottom: 20px; }
+.form-group { margin-bottom: 20px; }
+.form-group.half { flex: 1; margin-bottom: 0; }
+
+.form-group label { display: block; font-size: 13px; font-weight: 500; color: #334155; margin-bottom: 6px; }
+.required { color: #ef4444; }
+
+.form-input, .form-select {
+    width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 14px; box-sizing: border-box;
+}
+.form-input:focus, .form-select:focus { outline: none; border-color: #3b82f6; box-shadow: 0 0 0 2px rgba(59,130,246,0.1); }
+
+.hint { font-size: 12px; color: #64748b; margin-top: 4px; }
+
+/* CHECKBOX STYLES */
+.checkbox-row { display: flex; flex-direction: column; gap: 4px; }
+.checkbox-label { display: flex; align-items: center; gap: 8px; cursor: pointer; }
+.checkbox-label input { margin: 0; width: 16px; height: 16px; }
+.lbl-text { font-size: 14px; font-weight: 500; color: #1e293b; }
+
+.form-actions { display: flex; justify-content: flex-end; gap: 12px; border-top: 1px solid #f1f5f9; padding-top: 20px; margin-top: 10px; }
+.btn-primary { background: #2563eb; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; }
+.btn-secondary { background: white; border: 1px solid #cbd5e1; color: #334155; padding: 10px 20px; border-radius: 6px; cursor: pointer; }
+
+.loading-state { text-align: center; padding: 60px; color: #94a3b8; }
+.spinner { width: 30px; height: 30px; border: 3px solid #e2e8f0; border-top-color: #2563eb; border-radius: 50%; margin: 0 auto 15px; animation: spin 1s infinite linear; }
+@keyframes spin { to { transform: rotate(360deg); } }
